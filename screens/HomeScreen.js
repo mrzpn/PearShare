@@ -1,5 +1,11 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
+
+// Foods
+import bacon from '../assets/foods/bacon.png'
 import pasta from '../assets/foods/pasta.png'
+import pears from '../assets/foods/pears.png'
+import ribs from '../assets/foods/ribs.png'
+import tomato from '../assets/foods/tomato.png'
 
 export default function HomeScreen() {
     return (
@@ -9,20 +15,20 @@ export default function HomeScreen() {
         </View>
         <View style={stylesContainers.suggested}>
           <Text style={stylesFont.subtitle}>Suggested Listings:</Text>
-          <Tile3 foodImg={pasta} name="Pears" price="$5" dist="1 - 5km" exp="10/8"/>
+          <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8"/>
           <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8"/>
-          <Tile3 foodImg={pasta} name="Bacon" price="$5" dist="1 - 5km" exp="10/8"/>
+          <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8"/>
         </View>
         <View style={stylesContainers.nearYou}>
           <Text style={stylesFont.subtitle}>Near you:</Text>
-          <Tile2 foodImg={pasta} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
-          <Tile2 foodImg={pasta} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
+          <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
+          <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
         </View>
         <View style={stylesContainers.expiring}>
           <Text style={stylesFont.subtitle}>Expiring soon:</Text>
-          <Tile3 foodImg={pasta} name="Pears" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
+          <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
           <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
-          <Tile3 foodImg={pasta} name="Bacon" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
+          <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
         </View>
       </View>
     );
