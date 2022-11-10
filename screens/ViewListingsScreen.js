@@ -1,35 +1,37 @@
-import { StyleSheet, Text, View, Image, YellowBox } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
 // Foods
-import bacon from '../assets/foods/bacon.png'
-import pasta from '../assets/foods/pasta.png'
-import pears from '../assets/foods/pears.png'
-import ribs from '../assets/foods/ribs.png'
-import tomato from '../assets/foods/tomato.png'
+import bacon from '../assets/foods/bacon.png';
+import pasta from '../assets/foods/pasta.png';
+import pears from '../assets/foods/pears.png';
+import ribs from '../assets/foods/ribs.png';
+import tomato from '../assets/foods/tomato.png';
+import postListing from '../assets/postListingTile.png';
 
-export default function HomeScreen() {
+export default function ViewListingsScreen() {
     return (
       <View style={stylesContainers.container}>
         <View style={stylesContainers.header}>
-          <Text style={stylesFont.title}>Explore</Text>
+          <Text style={stylesFont.title}>All Listings</Text>
         </View>
-        <View style={stylesContainers.suggested}>
-          <Text style={stylesFont.subtitle}>Suggested Listings:</Text>
-          <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8"/>
-          <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8"/>
-          <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8"/>
+        <View style={stylesContainers.myListings}>
+          <Text style={stylesFont.subtitle}>My listings:</Text>
+          <Tile1 foodImg={postListing}/>
         </View>
-        <View style={stylesContainers.nearYou}>
-          <Text style={stylesFont.subtitle}>Near you:</Text>
-          <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
-          <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
-        </View>
-        <View style={stylesContainers.expiring}>
-          <Text style={stylesFont.subtitle}>Expiring soon:</Text>
+        <View style={stylesContainers.recentlyViewed}>
+          <Text style={stylesFont.subtitle}>Recently viewed:</Text>
           <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
           <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
           <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
         </View>
+          <View style={stylesContainers.pastOrders}>
+            <Text style={[stylesFont.subtitle, {top: 0}]}>Past orders:</Text>
+            <ScrollView horizontal={true} vertical={false} style={{paddingTop: 36}}>
+              <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
+              <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
+              <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
+            </ScrollView>
+          </View> 
         <View style={{width: "130%", height: 110, backgroundColor: "grey", position: "absolute", bottom: 0}}>
           <Text style={{alignSelf: "center"}}>Nav Bar</Text>
         </View>
@@ -59,10 +61,20 @@ const Tile2 = (props) => {
   );
 }
 
+const Tile1 = (props) => {
+  return (
+    <View style={stylesContainers.tile1}>
+      <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
+      <Text style={stylesFont.tileTitle}>{props.name}</Text>
+    </View>
+  );
+}
+
+
 const stylesContainers = StyleSheet.create({
     container: {
       flex: 1,
-      width: 390,
+      width: "100%",
       height: 844,
       flexDirection: "column",
       overflow: "scrollY",
@@ -76,32 +88,31 @@ const stylesContainers = StyleSheet.create({
       height: 135,
       top: 0,
     },
-    suggested: {
+    myListings: {
       position: "absolute",
       width: 390,
-      height: 200,
+      height: 240,
       top: 135,
       flexDirection: "row",
       alignContent: "center",
       justifyContent: "space-between",
     },
-    nearYou: {
+    recentlyViewed: {
       position: "absolute",
       width: 390,
-      height: 240,
-      top: 335,
+      height: 200,
+      top: 340,
       flexDirection: "row",
       alignContent: "center",
       justifyContent: "space-between",
     },
-    expiring: {
-      position: "absolute",
-      width: 390,
-      height: 200,
-      top: 575,
-      flexDirection: "row",
-      alignContent: "center",
-      justifyContent: "space-between",
+    pastOrders: {
+      flex: 1,
+      left: 16,
+      top: 545,
+      flexDirection:'row',
+      flexWrap: 'wrap',
+      alignItems: 'flex-start',
     },
     tile3: {
       width: 115,
@@ -114,7 +125,14 @@ const stylesContainers = StyleSheet.create({
       height: 185,
       alignSelf: "flex-end",
       marginBottom: 10,
+      marginRight: 20
     },
+    tile1: {
+      width: 185,
+      height: 185,
+      alignSelf: "flex-end",
+      marginBottom: 10,
+    }
 });
 
 const stylesFont = StyleSheet.create({
@@ -127,8 +145,6 @@ const stylesFont = StyleSheet.create({
   },
   subtitle: {
     position: "absolute",
-    width: 275,
-    height: 36,
     top: 14,
     fontSize: 20,
     color: '#313131',

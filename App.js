@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 
 import HomeScreen from './screens/HomeScreen'
+import ViewListingsScreen from './screens/ViewListingsScreen'
 
 export default function App() {
   return (
@@ -10,7 +11,7 @@ export default function App() {
     //   <Text>Open up App.js to start working on your app!</Text>
     //   <StatusBar style="auto" />
     // </View>
-    <HomeScreen/>
+    <ViewListingsScreen/>
   );
 }
 
