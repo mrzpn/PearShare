@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
 
 export default function SearchScreen() {
   const [text, onChangeText] = React.useState("");
@@ -17,6 +17,15 @@ export default function SearchScreen() {
           value={text}
           placeholder='Search by keyords'
         />
+        <TouchableOpacity
+          style={styles.circle}
+          onPress={onPress}
+        >
+          <Image 
+            style={styles.icon}
+            source={require('../assets/search-icon.png')}
+          />
+        </TouchableOpacity>
       </View>
       {/* Type of listing */}
       <Text style={styles.header}>Type of Listing:</Text>
@@ -54,7 +63,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    padding: 14,
+    padding: 10,
     width: '100%'
   },
   title: {
@@ -74,9 +83,22 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: '#E4E4E4',
     color: '#A0A0A0',
-    width: '80%',
+    width: '90%',
     height: 30,
     borderRadius: 10,
     padding: 10
+  },
+  circle: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: '#E4E4E4',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 16
+  },
+  icon: {
+    width: 20,
+    height: 20
   }
 });
