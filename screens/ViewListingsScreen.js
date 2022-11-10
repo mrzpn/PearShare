@@ -1,5 +1,8 @@
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, Touchable } from 'react-native';
 
+// style sheet
+import {containers, fonts} from '../styles/Global'
+
 // Foods
 import bacon from '../assets/foods/bacon.png';
 import pasta from '../assets/foods/pasta.png';
@@ -10,22 +13,22 @@ import postListing from '../assets/postListingTile.png';
 
 export default function ViewListingsScreen() {
     return (
-      <View style={stylesContainers.container}>
-        <View style={stylesContainers.header}>
-          <Text style={stylesFont.title}>All Listings</Text>
+      <View style={containers.container}>
+        <View style={containers.header}>
+          <Text style={fonts.title}>All Listings</Text>
         </View>
-        <View style={stylesContainers.myListings}>
-          <Text style={stylesFont.subtitle}>My listings:</Text>
+        <View style={styleContainers.myListings}>
+          <Text style={styleFonts.subtitle}>My listings:</Text>
           <Tile1 foodImg={postListing}/>
         </View>
-        <View style={stylesContainers.recentlyViewed}>
-          <Text style={stylesFont.subtitle}>Recently viewed:</Text>
+        <View style={styleContainers.recentlyViewed}>
+          <Text style={styleFonts.subtitle}>Recently viewed:</Text>
           <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
           <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
           <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
         </View>
-          <View style={stylesContainers.pastOrders}>
-            <Text style={[stylesFont.subtitle, {top: 0}]}>Past orders:</Text>
+          <View style={styleContainers.pastOrders}>
+            <Text style={[styleFonts.subtitle, {top: 0}]}>Past orders:</Text>
             <ScrollView horizontal={true} vertical={false} style={{paddingTop: 36}}>
               <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
               <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
@@ -41,10 +44,10 @@ export default function ViewListingsScreen() {
 
 const Tile3 = (props) => {
   return (
-    <View style={stylesContainers.tile3}>
+    <View style={styleContainers.tile3}>
       <TouchableOpacity>
         <Image source={props.foodImg} style={{width: "100%", height: "55%", borderRadius: 10, marginBottom: 2}}/>
-        <Text style={stylesFont.tileTitle}>{props.name}</Text>
+        <Text style={styleFonts.tileTitle}>{props.name}</Text>
         <Text>{props.price} • {props.dist}</Text>
         <Text style={{color: props.expCol}}>exp {props.exp}</Text>
       </TouchableOpacity>
@@ -54,10 +57,10 @@ const Tile3 = (props) => {
 
 const Tile2 = (props) => {
   return (
-    <View style={stylesContainers.tile2}>
+    <View style={styleContainers.tile2}>
       <TouchableOpacity>
         <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
-        <Text style={stylesFont.tileTitle}>{props.name}</Text>
+        <Text style={styleFonts.tileTitle}>{props.name}</Text>
         <Text>{props.price} • {props.dist}</Text>
         <Text>exp {props.exp}</Text>
       </TouchableOpacity>
@@ -72,33 +75,17 @@ function handlePost(e) {
 
 const Tile1 = (props) => {
   return (
-      <View style={stylesContainers.tile1}>
+      <View style={styleContainers.tile1}>
         <TouchableOpacity onPress={handlePost}>
             <Image source={props.foodImg} style={{width: "100%", height: 110, borderRadius: 10, marginBottom: 3}}/>
-            <Text style={stylesFont.tileTitle}>{props.name}</Text>
+            <Text style={styleFonts.tileTitle}>{props.name}</Text>
         </TouchableOpacity>
       </View>
   );
 }
 
 
-const stylesContainers = StyleSheet.create({
-    container: {
-      flex: 1,
-      width: "100%",
-      height: 844,
-      flexDirection: "column",
-      overflow: "scrollY",
-      alignItems: 'center',
-      justifyContent: 'center',
-      alignSelf: "center",
-    },
-    header: {
-      position: "absolute",
-      width: 390,
-      height: 135,
-      top: 0,
-    },
+const styleContainers = StyleSheet.create({
     myListings: {
       position: "absolute",
       width: 390,
@@ -146,14 +133,7 @@ const stylesContainers = StyleSheet.create({
     }
 });
 
-const stylesFont = StyleSheet.create({
-  title: {
-    position: "absolute",
-    top: 65,
-    fontSize: 40,
-    color: '#313131',
-    fontWeight: "bold",
-  },
+const styleFonts = StyleSheet.create({
   subtitle: {
     position: "absolute",
     top: 14,

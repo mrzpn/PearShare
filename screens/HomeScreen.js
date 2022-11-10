@@ -1,5 +1,8 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
+// style sheet
+import {containers, fonts} from '../styles/Global'
+
 // Foods
 import bacon from '../assets/foods/bacon.png'
 import pasta from '../assets/foods/pasta.png'
@@ -9,23 +12,23 @@ import tomato from '../assets/foods/tomato.png'
 
 export default function HomeScreen() {
     return (
-      <View style={stylesContainers.container}>
-        <View style={stylesContainers.header}>
-          <Text style={stylesFont.title}>Explore</Text>
+      <View style={containers.container}>
+        <View style={containers.header}>
+          <Text style={fonts.title}>Explore</Text>
         </View>
-        <View style={stylesContainers.suggested}>
-          <Text style={stylesFont.subtitle}>Suggested Listings:</Text>
+        <View style={styleContainers.suggested}>
+          <Text style={styleFonts.subtitle}>Suggested Listings:</Text>
           <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8"/>
           <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8"/>
           <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8"/>
         </View>
-        <View style={stylesContainers.nearYou}>
-          <Text style={stylesFont.subtitle}>Near you:</Text>
+        <View style={styleContainers.nearYou}>
+          <Text style={styleFonts.subtitle}>Near you:</Text>
           <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
           <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
         </View>
-        <View style={stylesContainers.expiring}>
-          <Text style={stylesFont.subtitle}>Expiring soon:</Text>
+        <View style={styleContainers.expiring}>
+          <Text style={styleFonts.subtitle}>Expiring soon:</Text>
           <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
           <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
           <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
@@ -39,10 +42,10 @@ export default function HomeScreen() {
 
 const Tile3 = (props) => {
   return (
-    <View style={stylesContainers.tile3}>
+    <View style={styleContainers.tile3}>
       <TouchableOpacity>
         <Image source={props.foodImg} style={{width: "100%", height: "55%", borderRadius: 10, marginBottom: 2}}/>
-        <Text style={stylesFont.tileTitle}>{props.name}</Text>
+        <Text style={fonts.tileTitle}>{props.name}</Text>
         <Text>{props.price} • {props.dist}</Text>
         <Text style={{color: props.expCol}}>exp {props.exp}</Text>
       </TouchableOpacity>
@@ -52,10 +55,10 @@ const Tile3 = (props) => {
 
 const Tile2 = (props) => {
   return (
-    <View style={stylesContainers.tile2}>
+    <View style={styleContainers.tile2}>
       <TouchableOpacity>
         <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
-        <Text style={stylesFont.tileTitle}>{props.name}</Text>
+        <Text style={fonts.tileTitle}>{props.name}</Text>
         <Text>{props.price} • {props.dist}</Text>
         <Text>exp {props.exp}</Text>
       </TouchableOpacity>
@@ -63,23 +66,7 @@ const Tile2 = (props) => {
   );
 }
 
-const stylesContainers = StyleSheet.create({
-    container: {
-      flex: 1,
-      width: 390,
-      height: 844,
-      flexDirection: "column",
-      overflow: "scrollY",
-      alignItems: 'center',
-      justifyContent: 'center',
-      alignSelf: "center",
-    },
-    header: {
-      position: "absolute",
-      width: 390,
-      height: 135,
-      top: 0,
-    },
+const styleContainers = StyleSheet.create({
     suggested: {
       position: "absolute",
       width: 390,
@@ -121,14 +108,7 @@ const stylesContainers = StyleSheet.create({
     },
 });
 
-const stylesFont = StyleSheet.create({
-  title: {
-    position: "absolute",
-    top: 65,
-    fontSize: 40,
-    color: '#313131',
-    fontWeight: "bold",
-  },
+const styleFonts = StyleSheet.create({
   subtitle: {
     position: "absolute",
     width: 275,
