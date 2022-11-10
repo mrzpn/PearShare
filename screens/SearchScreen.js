@@ -2,22 +2,30 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
 
-import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { containers, fonts  } from '../styles/Global';
+
+import CheckBox from '../components/CheckBox'
+import RadioButton from '../components/RadioButton'
 
 export default function SearchScreen() {
   const [text, onChangeText] = React.useState("");
   const onPress = () => console.log("Button Pressed")
   return (
-    <View style={styles.content}>
-      {/* Title */}
-      <Text style={styles.title}>Search</Text>
+    <View style={[containers.container, {alignItems: 'flex-start'}]}>
+      <View style={[containers.header]}>
+        {/* Title */}
+        <Text style={fonts.title}>Search</Text>
+      </View>
+      <View>
+        
+      </View>
       {/* Search by keywords */}
-      <View style={styles.container}>
+      <View style={[styles.container]}>
         <TextInput
           style={styles.input} 
           onChangeText={onChangeText}
           value={text}
-          placeholder='Search by keyords'
+          placeholder='Search by keywords'
         />
         <TouchableOpacity
           style={styles.circle}
@@ -30,7 +38,7 @@ export default function SearchScreen() {
         </TouchableOpacity>
       </View>
       {/* Line Separator */}
-      <View style={styles.center}>
+      <View style={[styles.center, {paddingVertical: 10}]}>
         <View style={styles.line} />
         <View>
           <Text style={{width: 50, textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#BDBDBD'}}>OR</Text>
@@ -40,6 +48,17 @@ export default function SearchScreen() {
       {/* Type of listing */}
       <Text style={styles.header}>Type of Listing:</Text>
       <View style={styles.content}>
+      <View style={styles.options}>
+          <View style={styles.option}>
+            <RadioButton label="Meat" onPress={onPress} />
+          </View>
+          <View style={styles.option}>
+            <RadioButton label="Fruit & Veg" onPress={onPress} />
+          </View>
+          <View style={[styles.option, {marginLeft: 50}]}>
+            <RadioButton label='Dairy' onPress={onPress} />
+          </View>
+        </View>  
       </View>
       {/* Type of food/drink */}
       <Text style={styles.header}>Type of Food/Drink:</Text>
@@ -47,81 +66,28 @@ export default function SearchScreen() {
         {/* Row 1 */}
         <View style={styles.options}>
           <View style={styles.option}>
-            <BouncyCheckbox
-              size={25}
-              fillColor="#FF805E"
-              unfillColor="#FFFFFF"
-              text="Meat"
-              iconStyle={{ borderColor: "red", borderRadius: 5}}
-              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
-              textStyle={{ textDecorationLine: 'none' }}
-              onPress={(isChecked) => {}}
-            />
+            <CheckBox label="Meat" onPress={onPress} />
           </View>
           <View style={styles.option}>
-            <BouncyCheckbox
-              size={25}
-              fillColor="#FF805E"
-              unfillColor="#FFFFFF"
-              text="Fruit & Veg"
-              iconStyle={{ borderColor: "red", borderRadius: 5}}
-              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
-              textStyle={{ textDecorationLine: 'none' }}
-              onPress={(isChecked) => {}}
-            />
+            <CheckBox label="Fruit & Veg" onPress={onPress} />
           </View>
           <View style={[styles.option, {marginLeft: 50}]}>
-            <BouncyCheckbox
-              size={25}
-              fillColor="#FF805E"
-              unfillColor="#FFFFFF"
-              text="Dairy"
-              iconStyle={{ borderColor: "red", borderRadius: 5}}
-              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
-              textStyle={{ textDecorationLine: 'none' }}
-              onPress={(isChecked) => {}}
-            />
+            <CheckBox label='Dairy' onPress={onPress} />
           </View>
         </View>        
         {/* Row 2 */}
         <View style={styles.options}>
           <View style={styles.option}>
-            <BouncyCheckbox
-              size={25}
-              fillColor="#FF805E"
-              unfillColor="#FFFFFF"
-              text="Carbs"
-              iconStyle={{ borderColor: "red", borderRadius: 5}}
-              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
-              textStyle={{ textDecorationLine: 'none' }}
-              onPress={(isChecked) => {}}
-            />
+            <CheckBox label="Carbs" onPress={onPress} />
           </View>
           <View style={styles.option}>
-            <BouncyCheckbox
-              size={25}
-              fillColor="#FF805E"
-              unfillColor="#FFFFFF"
-              text="Confectionary"
-              iconStyle={{ borderColor: "red", borderRadius: 5}}
-              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
-              textStyle={{ textDecorationLine: 'none' }}
-              onPress={(isChecked) => {}}
-            />
+            <CheckBox label="Confectionary" onPress={onPress} />
           </View>
           <View style={[styles.option, {marginLeft: 50}]}>
-            <BouncyCheckbox
-              size={25}
-              fillColor="#FF805E"
-              unfillColor="#FFFFFF"
-              text="Other"
-              iconStyle={{ borderColor: "red", borderRadius: 5}}
-              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
-              textStyle={{ textDecorationLine: 'none' }}
-              onPress={(isChecked) => {}}
-            />
+            <CheckBox label='Other' onPress={onPress} />
           </View>
         </View>        
+           
       </View>
       {/* Price Range */}
       <Text style={styles.header}>Price Range:</Text>
@@ -165,11 +131,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
-  },
-  title: {
-    fontSize: 40,
-    fontWeight: 'bold'
+    alignItems: 'center',
   },
   header: {
     fontSize: 28,
