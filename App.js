@@ -4,11 +4,14 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import SearchScreen from './screens/SearchScreen';
 import SearchResultsScreen from './screens/SearchResultsScreen';
+import IndividualListingScreen from './screens/IndividualListingScreen';
+
 export default function App() {
   return (
     <View style={styles.container}>
       {/* <SearchScreen /> */}
-      <SearchResultsScreen />
+      {/* <SearchResultsScreen /> */}
+      <IndividualListingScreen />
       <StatusBar style="auto" />
     </View>
   );
