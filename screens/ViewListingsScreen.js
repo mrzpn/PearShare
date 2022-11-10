@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 
 // Foods
 import bacon from '../assets/foods/bacon.png';
@@ -61,12 +61,21 @@ const Tile2 = (props) => {
   );
 }
 
+function handlePost(e) {
+  e.preventDefault();
+  alert("hello!");
+}
+
 const Tile1 = (props) => {
   return (
-    <View style={stylesContainers.tile1}>
-      <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
-      <Text style={stylesFont.tileTitle}>{props.name}</Text>
-    </View>
+      <View style={stylesContainers.tile1}>
+        <TouchableOpacity onPress={handlePost}>
+          <View style={stylesContainers.tile1}>
+            <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
+            <Text style={stylesFont.tileTitle}>{props.name}</Text>
+          </View>      
+        </TouchableOpacity>
+      </View>
   );
 }
 
