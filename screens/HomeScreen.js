@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, YellowBox } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 // Foods
 import bacon from '../assets/foods/bacon.png'
@@ -40,10 +40,12 @@ export default function HomeScreen() {
 const Tile3 = (props) => {
   return (
     <View style={stylesContainers.tile3}>
-      <Image source={props.foodImg} style={{width: "100%", height: "55%", borderRadius: 10, marginBottom: 2}}/>
-      <Text style={stylesFont.tileTitle}>{props.name}</Text>
-      <Text>{props.price} • {props.dist}</Text>
-      <Text style={{color: props.expCol}}>exp {props.exp}</Text>
+      <TouchableOpacity>
+        <Image source={props.foodImg} style={{width: "100%", height: "55%", borderRadius: 10, marginBottom: 2}}/>
+        <Text style={stylesFont.tileTitle}>{props.name}</Text>
+        <Text>{props.price} • {props.dist}</Text>
+        <Text style={{color: props.expCol}}>exp {props.exp}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -51,10 +53,12 @@ const Tile3 = (props) => {
 const Tile2 = (props) => {
   return (
     <View style={stylesContainers.tile2}>
-      <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
-      <Text style={stylesFont.tileTitle}>{props.name}</Text>
-      <Text>{props.price} • {props.dist}</Text>
-      <Text>exp {props.exp}</Text>
+      <TouchableOpacity>
+        <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
+        <Text style={stylesFont.tileTitle}>{props.name}</Text>
+        <Text>{props.price} • {props.dist}</Text>
+        <Text>exp {props.exp}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -98,7 +102,7 @@ const stylesContainers = StyleSheet.create({
       position: "absolute",
       width: 390,
       height: 200,
-      top: 575,
+      top: 565,
       flexDirection: "row",
       alignContent: "center",
       justifyContent: "space-between",

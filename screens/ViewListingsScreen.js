@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, Touchable } from 'react-native';
 
 // Foods
 import bacon from '../assets/foods/bacon.png';
@@ -42,10 +42,12 @@ export default function ViewListingsScreen() {
 const Tile3 = (props) => {
   return (
     <View style={stylesContainers.tile3}>
-      <Image source={props.foodImg} style={{width: "100%", height: "55%", borderRadius: 10, marginBottom: 2}}/>
-      <Text style={stylesFont.tileTitle}>{props.name}</Text>
-      <Text>{props.price} • {props.dist}</Text>
-      <Text style={{color: props.expCol}}>exp {props.exp}</Text>
+      <TouchableOpacity>
+        <Image source={props.foodImg} style={{width: "100%", height: "55%", borderRadius: 10, marginBottom: 2}}/>
+        <Text style={stylesFont.tileTitle}>{props.name}</Text>
+        <Text>{props.price} • {props.dist}</Text>
+        <Text style={{color: props.expCol}}>exp {props.exp}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -53,10 +55,12 @@ const Tile3 = (props) => {
 const Tile2 = (props) => {
   return (
     <View style={stylesContainers.tile2}>
-      <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
-      <Text style={stylesFont.tileTitle}>{props.name}</Text>
-      <Text>{props.price} • {props.dist}</Text>
-      <Text>exp {props.exp}</Text>
+      <TouchableOpacity>
+        <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
+        <Text style={stylesFont.tileTitle}>{props.name}</Text>
+        <Text>{props.price} • {props.dist}</Text>
+        <Text>exp {props.exp}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -70,10 +74,8 @@ const Tile1 = (props) => {
   return (
       <View style={stylesContainers.tile1}>
         <TouchableOpacity onPress={handlePost}>
-          <View style={stylesContainers.tile1}>
-            <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
+            <Image source={props.foodImg} style={{width: "100%", height: 110, borderRadius: 10, marginBottom: 3}}/>
             <Text style={stylesFont.tileTitle}>{props.name}</Text>
-          </View>      
         </TouchableOpacity>
       </View>
   );
