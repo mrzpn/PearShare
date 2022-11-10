@@ -6,6 +6,7 @@ import { containers, fonts  } from '../styles/Global';
 
 import CheckBox from '../components/CheckBox'
 import RadioButton from '../components/RadioButton'
+import SearchBar from '../components/SearchBar'
 
 export default function SearchScreen() {
   const [text, onChangeText] = React.useState("");
@@ -21,12 +22,7 @@ export default function SearchScreen() {
       </View>
       {/* Search by keywords */}
       <View style={[styles.container]}>
-        <TextInput
-          style={styles.input} 
-          onChangeText={onChangeText}
-          value={text}
-          placeholder='Search by keywords'
-        />
+        <SearchBar label='Search by keywords' onChangeText={onChangeText} />
         <TouchableOpacity
           style={styles.circle}
           onPress={onPress}
@@ -96,11 +92,14 @@ export default function SearchScreen() {
       </View>
       {/* Location */}
       <Text style={styles.header}>Location:</Text>
-      <View style={styles.container}>
-
+      <View style={[styles.container]}>
+        <SearchBar label='Enter address' onChangeText={onChangeText} />
+      </View>
+      <View style={{padding: 10}}>
+        <CheckBox label='Use my address' onPress={onPress} />
       </View>
       {/* Search by Filter Button */}
-      <View style={styles.center}>
+      <View style={[styles.center, {marginVertical: 20}]}>
         <TouchableOpacity
           style={styles.button}
           onPress={onPress}
@@ -144,14 +143,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-  },
-  input: {
-    backgroundColor: '#E4E4E4',
-    color: '#A0A0A0',
-    width: '90%',
-    height: 30,
-    borderRadius: 10,
-    padding: 10
   },
   circle: {
     width: 30,
