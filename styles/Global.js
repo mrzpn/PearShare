@@ -1,6 +1,6 @@
-import { Stylesheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-const containers = StyleSheet.create({
+export const containers = StyleSheet.create({
     container: {
       flex: 1,
       width: 390,
