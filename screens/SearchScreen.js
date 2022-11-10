@@ -70,12 +70,51 @@ export default function SearchScreen() {
               onPress={(isChecked) => {}}
             />
           </View>
-          <View style={styles.option}>
+          <View style={[styles.option, {marginLeft: 50}]}>
             <BouncyCheckbox
               size={25}
               fillColor="#FF805E"
               unfillColor="#FFFFFF"
               text="Dairy"
+              iconStyle={{ borderColor: "red", borderRadius: 5}}
+              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
+              textStyle={{ textDecorationLine: 'none' }}
+              onPress={(isChecked) => {}}
+            />
+          </View>
+        </View>        
+        {/* Row 2 */}
+        <View style={styles.options}>
+          <View style={styles.option}>
+            <BouncyCheckbox
+              size={25}
+              fillColor="#FF805E"
+              unfillColor="#FFFFFF"
+              text="Carbs"
+              iconStyle={{ borderColor: "red", borderRadius: 5}}
+              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
+              textStyle={{ textDecorationLine: 'none' }}
+              onPress={(isChecked) => {}}
+            />
+          </View>
+          <View style={styles.option}>
+            <BouncyCheckbox
+              size={25}
+              fillColor="#FF805E"
+              unfillColor="#FFFFFF"
+              text="Confectionary"
+              iconStyle={{ borderColor: "red", borderRadius: 5}}
+              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
+              textStyle={{ textDecorationLine: 'none' }}
+              onPress={(isChecked) => {}}
+            />
+          </View>
+          <View style={[styles.option, {marginLeft: 50}]}>
+            <BouncyCheckbox
+              size={25}
+              fillColor="#FF805E"
+              unfillColor="#FFFFFF"
+              text="Other"
               iconStyle={{ borderColor: "red", borderRadius: 5}}
               innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
               textStyle={{ textDecorationLine: 'none' }}
@@ -174,9 +213,12 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 10
   },
   option: {
-    width: '30%'
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    flex: 1
   }
 });
