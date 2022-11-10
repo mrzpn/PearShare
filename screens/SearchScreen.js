@@ -4,9 +4,10 @@ import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'reac
 
 import { containers, fonts  } from '../styles/Global';
 
-import CheckBox from '../components/CheckBox'
-import RadioButton from '../components/RadioButton'
-import SearchBar from '../components/SearchBar'
+import CheckBox from '../components/CheckBox';
+import RadioButton from '../components/RadioButton';
+import SearchBar from '../components/SearchBar';
+import OrangeButton from '../components/OrangeButton';
 
 export default function SearchScreen() {
   const [text, onChangeText] = React.useState("");
@@ -100,12 +101,7 @@ export default function SearchScreen() {
       </View>
       {/* Search by Filter Button */}
       <View style={[styles.center, {marginVertical: 20}]}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={onPress}
-        >
-          <Text style={{color: '#FFFFFF'}}>Search</Text>
-      </TouchableOpacity>
+        <OrangeButton label='Search' onPress={onPress} />
       </View>
     </View>
   );

@@ -3,11 +3,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 import SearchScreen from './screens/SearchScreen';
-
+import SearchResultsScreen from './screens/SearchResultsScreen';
 export default function App() {
   return (
     <View style={styles.container}>
-      <SearchScreen />
+      {/* <SearchScreen /> */}
+      <SearchResultsScreen />
       <StatusBar style="auto" />
     </View>
   );
