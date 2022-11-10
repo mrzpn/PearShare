@@ -28,15 +28,15 @@ export default function ViewListingsScreen() {
           <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
         </View>
           <View style={styleContainers.pastOrders}>
-            <Text style={[styleFonts.subtitle, {top: 0}]}>Past orders:</Text>
-            <ScrollView horizontal={true} vertical={false} style={{paddingTop: 36}}>
+            <Text style={styleFonts.subtitle}>Past orders:</Text>
+            <ScrollView horizontal={true} vertical={false}>
               <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
               <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
               <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
             </ScrollView>
           </View> 
         <View style={{width: "130%", height: 110, backgroundColor: "grey", position: "absolute", bottom: 0}}>
-          <Text style={{alignSelf: "center"}}>Nav Bar</Text>
+            <Text style={{alignSelf: "center"}}>Nav Bar</Text>
         </View>
       </View>
     );
@@ -46,7 +46,7 @@ const Tile3 = (props) => {
   return (
     <View style={styleContainers.tile3}>
       <TouchableOpacity>
-        <Image source={props.foodImg} style={{width: "100%", height: "55%", borderRadius: 10, marginBottom: 2}}/>
+        <Image source={props.foodImg} style={{width: "100%", height: 75, borderRadius: 10, marginBottom: 3}}/>
         <Text style={styleFonts.tileTitle}>{props.name}</Text>
         <Text>{props.price} • {props.dist}</Text>
         <Text style={{color: props.expCol}}>exp {props.exp}</Text>
@@ -59,7 +59,7 @@ const Tile2 = (props) => {
   return (
     <View style={styleContainers.tile2}>
       <TouchableOpacity>
-        <Image source={props.foodImg} style={{width: "100%", height: "60%", borderRadius: 10, marginBottom: 3}}/>
+        <Image source={props.foodImg} style={{width: "100%", height: 110, borderRadius: 10, marginBottom: 3}}/>
         <Text style={styleFonts.tileTitle}>{props.name}</Text>
         <Text>{props.price} • {props.dist}</Text>
         <Text>exp {props.exp}</Text>
@@ -87,27 +87,18 @@ const Tile1 = (props) => {
 
 const styleContainers = StyleSheet.create({
     myListings: {
-      position: "absolute",
       width: 390,
-      height: 240,
-      top: 135,
+      height: 220,
       flexDirection: "row",
-      alignContent: "center",
-      justifyContent: "space-between",
     },
     recentlyViewed: {
-      position: "absolute",
       width: 390,
       height: 200,
-      top: 340,
       flexDirection: "row",
-      alignContent: "center",
       justifyContent: "space-between",
     },
     pastOrders: {
       flex: 1,
-      left: 16,
-      top: 545,
       flexDirection:'row',
       flexWrap: 'wrap',
       alignItems: 'flex-start',
@@ -115,34 +106,30 @@ const styleContainers = StyleSheet.create({
     tile3: {
       width: 115,
       height: 140,
-      alignSelf: "flex-end",
-      marginBottom: 10,
+      top: 34,
     },
     tile2: {
       width: 185,
       height: 185,
-      alignSelf: "flex-end",
-      marginBottom: 10,
+      top: 34,
       marginRight: 20
     },
     tile1: {
       width: 185,
       height: 185,
-      alignSelf: "flex-end",
-      marginBottom: 10,
+      top: 34,
     }
 });
 
 const styleFonts = StyleSheet.create({
   subtitle: {
     position: "absolute",
-    top: 14,
     fontSize: 20,
     color: '#313131',
     fontWeight: "bold",
   },
   tileTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     paddingBottom: 2,
   },
