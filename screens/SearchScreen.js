@@ -27,6 +27,14 @@ export default function SearchScreen() {
           />
         </TouchableOpacity>
       </View>
+      {/* Line Separator */}
+      <View style={styles.center}>
+        <View style={styles.line} />
+        <View>
+          <Text style={{width: 50, textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#BDBDBD'}}>OR</Text>
+        </View>
+        <View style={styles.line} />
+      </View>
       {/* Type of listing */}
       <Text style={styles.header}>Type of Listing:</Text>
       <View style={styles.container}>
@@ -47,6 +55,15 @@ export default function SearchScreen() {
       <View style={styles.container}>
 
       </View>
+      {/* Search by Filter Button */}
+      <View style={styles.center}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={onPress}
+        >
+          <Text style={{color: '#FFFFFF'}}>Search</Text>
+      </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -66,8 +83,15 @@ const styles = StyleSheet.create({
     padding: 10,
     width: '100%'
   },
+  center: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   title: {
     fontSize: 40,
+    fontFamily: 'Roboto'
   },
   header: {
     fontSize: 28,
@@ -78,7 +102,7 @@ const styles = StyleSheet.create({
     height: 35,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10
+    borderRadius: 10,
   },
   input: {
     backgroundColor: '#E4E4E4',
@@ -100,5 +124,10 @@ const styles = StyleSheet.create({
   icon: {
     width: 20,
     height: 20
+  },
+  line: {
+    flex: 1, 
+    height: 1, 
+    backgroundColor: '#BDBDBD'
   }
 });
