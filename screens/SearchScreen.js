@@ -2,6 +2,8 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
 
+import BouncyCheckbox from "react-native-bouncy-checkbox";
+
 export default function SearchScreen() {
   const [text, onChangeText] = React.useState("");
   const onPress = () => console.log("Button Pressed")
@@ -37,13 +39,50 @@ export default function SearchScreen() {
       </View>
       {/* Type of listing */}
       <Text style={styles.header}>Type of Listing:</Text>
-      <View style={styles.container}>
-
+      <View style={styles.content}>
       </View>
       {/* Type of food/drink */}
       <Text style={styles.header}>Type of Food/Drink:</Text>
-      <View style={styles.container}>
-
+      <View style={styles.content}>
+        {/* Row 1 */}
+        <View style={styles.options}>
+          <View style={styles.option}>
+            <BouncyCheckbox
+              size={25}
+              fillColor="#FF805E"
+              unfillColor="#FFFFFF"
+              text="Meat"
+              iconStyle={{ borderColor: "red", borderRadius: 5}}
+              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
+              textStyle={{ textDecorationLine: 'none' }}
+              onPress={(isChecked) => {}}
+            />
+          </View>
+          <View style={styles.option}>
+            <BouncyCheckbox
+              size={25}
+              fillColor="#FF805E"
+              unfillColor="#FFFFFF"
+              text="Fruit & Veg"
+              iconStyle={{ borderColor: "red", borderRadius: 5}}
+              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
+              textStyle={{ textDecorationLine: 'none' }}
+              onPress={(isChecked) => {}}
+            />
+          </View>
+          <View style={styles.option}>
+            <BouncyCheckbox
+              size={25}
+              fillColor="#FF805E"
+              unfillColor="#FFFFFF"
+              text="Dairy"
+              iconStyle={{ borderColor: "red", borderRadius: 5}}
+              innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
+              textStyle={{ textDecorationLine: 'none' }}
+              onPress={(isChecked) => {}}
+            />
+          </View>
+        </View>        
       </View>
       {/* Price Range */}
       <Text style={styles.header}>Price Range:</Text>
@@ -91,10 +130,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
-    fontFamily: 'Roboto'
+    fontWeight: 'bold'
   },
   header: {
     fontSize: 28,
+    fontWeight: 'bold'
   },
   button: {
     backgroundColor: '#FF805E',
@@ -129,5 +169,14 @@ const styles = StyleSheet.create({
     flex: 1, 
     height: 1, 
     backgroundColor: '#BDBDBD'
+  },
+  options: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
+  },
+  option: {
+    width: '30%'
   }
 });
