@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 
 import HomeScreen from './screens/HomeScreen'
+import SettingsScreen from './screens/SettingsScreen';
 import ViewListingsScreen from './screens/ViewListingsScreen'
 
 export default function App() {
@@ -12,7 +13,8 @@ export default function App() {
     //   <StatusBar style="auto" />
     // </View>
     // <ViewListingsScreen/>
-    <HomeScreen/>
+    // <HomeScreen/>
+    <SettingsScreen/>
   );
 }
 
