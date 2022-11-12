@@ -7,6 +7,7 @@ import ribs from '../assets/search-icon.png';
 import tomato from '../assets/search-icon.png';
 
 import OrangeButton from '../components/OrangeButton';
+import IconButton from '../components/BackButton';
 
 export default function SearchResultsScreen() {
   return (
@@ -14,10 +15,7 @@ export default function SearchResultsScreen() {
       <View style={[containers.header]}>
         {/* Title */}
         <Text style={fonts.title}>Search Results</Text>
-      </View>
-      <View style={styles.nearYou}>
-        <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
-        <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/> 
+        <IconButton src='../assets/back-arrow.png' onPress={() => {}} />
       </View>
       <View style={styles.nearYou}>
         <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>

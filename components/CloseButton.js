@@ -1,26 +1,28 @@
-import { Text,TouchableOpacity} from 'react-native';
+import { TouchableOpacity, Image} from 'react-native';
 
-const OrangeButton = (props) => {
-  const label = props.label;
+const CloseButton = (props) => {
   const onPress = props.onPress;
   return (
     <TouchableOpacity
       style={styles.button}
       onPress={onPress}
     >
-      <Text style={{color: '#FFFFFF'}}>{label}</Text>
+      <Image 
+        style={styles.icon}
+        source={require('../assets/cross.png')}
+      />
     </TouchableOpacity>
   );
 }
-export default OrangeButton;
+export default CloseButton;
 
 const styles = {
   button: {
     backgroundColor: '#FF805E',
-    width: 139,
-    height: 35,
+    width: 36,
+    height: 36,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: 18,
   },
 }

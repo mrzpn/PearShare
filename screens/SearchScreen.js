@@ -11,15 +11,15 @@ import OrangeButton from '../components/OrangeButton';
 
 export default function SearchScreen() {
   const [text, onChangeText] = React.useState("");
-  const onPress = () => console.log("Button Pressed")
+  const [min, onChangeMin] = React.useState("");
+  const [max, onChangeMax] = React.useState("");
+  const onPress = () => console.log("Button Pressed");
+
   return (
     <View style={[containers.container, {alignItems: 'flex-start'}]}>
       <View style={[containers.header]}>
         {/* Title */}
         <Text style={fonts.title}>Search</Text>
-      </View>
-      <View>
-        
       </View>
       {/* Search by keywords */}
       <View style={[styles.container]}>
@@ -88,8 +88,9 @@ export default function SearchScreen() {
       </View>
       {/* Price Range */}
       <Text style={styles.header}>Price Range:</Text>
-      <View style={styles.container}>
-
+      <View style={[styles.container, {justifyContent: "space-evenly"}]}>
+        <TextInput style={styles.input} value={min} onChangeText={onChangeMin} placeholder={'Minimum Price'} />
+        <TextInput style={styles.input} value={max} onChangeText={onChangeMax} placeholder={'Maximum Price'} />
       </View>
       {/* Location */}
       <Text style={styles.header}>Location:</Text>
@@ -169,5 +170,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     flex: 1
-  }
+  },
+  input: {
+    backgroundColor: '#E4E4E4',
+    color: '#A0A0A0',
+    width: '40%',
+    height: 30,
+    borderRadius: 10,
+    padding: 10
+  },
 });
