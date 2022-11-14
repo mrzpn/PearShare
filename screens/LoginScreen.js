@@ -21,11 +21,6 @@ function Login() {
                     size="lg"
                     mt={4}
                 />
-
-                {/* TODO: sign up should navigate to register screen */}
-                <Link style={styles.signUpText} href="/register">Don't have an account? Sign up</Link>
-                {/* <Text style={styles.signUpText}>Not a user? <u>Sign up...</u></Text> */}
-
                 <Input
                     placeholder="Password"
                     variant="filled"

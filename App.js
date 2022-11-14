@@ -25,7 +25,6 @@ export default function App() {
               iconName = focused ? 'ios-search' : 'ios-search-outline';
 
             } else if (route.name === 'Post') {
-              // TODO: use non-ionicon library to find better icon?
               iconName = focused ? 'ios-add' : 'ios-add-outline';
 
             } else if (route.name === 'Listings') {
@@ -33,6 +32,12 @@ export default function App() {
 
             } else if (route.name === 'Settings') {
               iconName = focused ? 'ios-settings' : 'ios-settings-outline';
+            
+            } else if (route.name === 'Login') {
+              iconName = focused ? 'ios-log-in' : 'ios-log-in-outline';
+            
+            } else if (route.name === 'Register') {
+              iconName = focused ? 'ios-person-add' : 'ios-person-add-outline';
             }
 
             return <Ionicons name={iconName} size={size} color={color} />;
@@ -44,17 +49,17 @@ export default function App() {
         {loggedIn ? (
           <>
             {/* TODO: fix routes once implemented */}
-            <Tab.Screen name="Explore" component={RegisterScreen} />
-            <Tab.Screen name="Search" component={RegisterScreen} />
-            <Tab.Screen name="Post" component={RegisterScreen} />
-            <Tab.Screen name="Listings" component={RegisterScreen} />
-            <Tab.Screen name="Settings" component={RegisterScreen} />
+            <Tab.Screen name="Explore" options={{headerShown: false}} component={RegisterScreen} />
+            <Tab.Screen name="Search" options={{headerShown: false}} component={RegisterScreen} />
+            <Tab.Screen name="Post" options={{headerShown: false}} component={RegisterScreen} />
+            <Tab.Screen name="Listings" options={{headerShown: false}} component={RegisterScreen} />
+            <Tab.Screen name="Settings" options={{headerShown: false}} component={RegisterScreen} />
           </>
         ) : (
           <>
-            {/* don't show other routes if user is not logged in  */}
-            <Tab.Screen name="Login" component={LoginScreen} />
-            <Tab.Screen name="Register" component={RegisterScreen} />
+            {/* don't show other options if user is not logged in  */}
+            <Tab.Screen name="Login" options={{headerShown: false}} component={LoginScreen} />
+            <Tab.Screen name="Register" options={{headerShown: false}} component={RegisterScreen} />
           </> 
         )}
       </Tab.Navigator>
