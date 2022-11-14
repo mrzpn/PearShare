@@ -23,7 +23,8 @@ function Login() {
                 />
 
                 {/* TODO: sign up should navigate to register screen */}
-                <Text style={styles.signUpText}>Not a user? <u>Sign up...</u></Text>
+                <Link style={styles.signUpText} href="/register">Don't have an account? Sign up</Link>
+                {/* <Text style={styles.signUpText}>Not a user? <u>Sign up...</u></Text> */}
 
                 <Input
                     placeholder="Password"
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     },
     signUpText: {
         color: 'black',
-        fontSize: 10,
+        fontSize: 8,
         marginTop: 10,
     },
 });

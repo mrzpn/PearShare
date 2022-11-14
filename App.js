@@ -3,8 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-// TODO: replace RegisterScreen with other screen imports
 import RegisterScreen from './screens/RegisterScreen';
+import LoginScreen from './screens/LoginScreen';
+
+import { loggedIn } from './screens/RegisterScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,12 +41,22 @@ export default function App() {
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        {/* TODO: fix routes once implemented */}
-        <Tab.Screen name="Explore" component={RegisterScreen} />
-        <Tab.Screen name="Search" component={RegisterScreen} />
-        <Tab.Screen name="Post" component={RegisterScreen} />
-        <Tab.Screen name="Listings" component={RegisterScreen} />
-        <Tab.Screen name="Settings" component={RegisterScreen} />
+        {loggedIn ? (
+          <>
+            {/* TODO: fix routes once implemented */}
+            <Tab.Screen name="Explore" component={RegisterScreen} />
+            <Tab.Screen name="Search" component={RegisterScreen} />
+            <Tab.Screen name="Post" component={RegisterScreen} />
+            <Tab.Screen name="Listings" component={RegisterScreen} />
+            <Tab.Screen name="Settings" component={RegisterScreen} />
+          </>
+        ) : (
+          <>
+            {/* don't show other routes if user is not logged in  */}
+            <Tab.Screen name="Login" component={LoginScreen} />
+            <Tab.Screen name="Register" component={RegisterScreen} />
+          </> 
+        )}
       </Tab.Navigator>
     </NavigationContainer>
   );
