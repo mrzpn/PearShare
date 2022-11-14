@@ -21,10 +21,6 @@ function Login() {
                     size="lg"
                     mt={4}
                 />
-
-                {/* TODO: sign up should navigate to register screen */}
-                <Text style={styles.signUpText}>Not a user? <u>Sign up...</u></Text>
-
                 <Input
                     placeholder="Password"
                     variant="filled"
@@ -91,7 +87,7 @@ const styles = StyleSheet.create({
     },
     signUpText: {
         color: 'black',
-        fontSize: 10,
+        fontSize: 8,
         marginTop: 10,
     },
 });

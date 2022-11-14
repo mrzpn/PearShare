@@ -26,13 +26,13 @@ export const fonts = StyleSheet.create({
     top: 67,
     fontSize: 40,
     color: '#313131',
-    // fontWeight: 500,
+    fontWeight: "500",
   },
   titleLogin: {
     position: "absolute",
     fontSize: 32,
     color: '#313131',
-    // fontWeight: 500,
+    fontWeight: "500",
     marginTop: 240,
   }
 })

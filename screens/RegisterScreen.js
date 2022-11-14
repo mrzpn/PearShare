@@ -3,6 +3,8 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Input, NativeBaseProvider } from 'native-base';
 import { fonts } from '../styles/Global';
 
+const loggedIn = false;
+
 function Register() {
     return (
         <NativeBaseProvider>
@@ -49,7 +51,7 @@ function Register() {
                     mt={4}
                 />
                 {/* TODO: register button navigates to homepage */}
-                <TouchableOpacity style={styles.registerButton}>
+                <TouchableOpacity style={styles.registerButton} onPress={() => loggedIn = true}>
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>
             </View>

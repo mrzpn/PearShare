@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-// TODO: replace RegisterScreen with other screen imports
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
 import SettingsScreen from './screens/SettingsScreen';
@@ -32,7 +31,6 @@ export default function App() {
               iconName = focused ? 'ios-search' : 'ios-search-outline';
 
             } else if (route.name === 'Post') {
-              // TODO: use non-ionicon library to find better icon?
               iconName = focused ? 'ios-add' : 'ios-add-outline';
 
             } else if (route.name === 'Listings') {
@@ -40,6 +38,12 @@ export default function App() {
 
             } else if (route.name === 'Settings') {
               iconName = focused ? 'ios-settings' : 'ios-settings-outline';
+            
+            } else if (route.name === 'Login') {
+              iconName = focused ? 'ios-log-in' : 'ios-log-in-outline';
+            
+            } else if (route.name === 'Register') {
+              iconName = focused ? 'ios-person-add' : 'ios-person-add-outline';
             }
 
             return <Ionicons name={iconName} size={size} color={color} />;
@@ -48,12 +52,22 @@ export default function App() {
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        {/* TODO: fix routes once implemented */}
-        <Tab.Screen name="Explore" options={{headerShown: false}} component={HomeScreen} />
-        <Tab.Screen name="Search" options={{headerShown: false}} component={RegisterScreen} />
-        <Tab.Screen name="Post" options={{headerShown: false}} component={RegisterScreen} />
-        <Tab.Screen name="Listings" options={{headerShown: false}} component={ViewListingsScreen} />
-        <Tab.Screen name="Settings" options={{headerShown: false}} component={SettingsScreen} />
+        {loggedIn ? (
+          <>
+            {/* TODO: fix routes once implemented */}
+            <Tab.Screen name="Explore" options={{headerShown: false}} component={RegisterScreen} />
+            <Tab.Screen name="Search" options={{headerShown: false}} component={RegisterScreen} />
+            <Tab.Screen name="Post" options={{headerShown: false}} component={RegisterScreen} />
+            <Tab.Screen name="Listings" options={{headerShown: false}} component={RegisterScreen} />
+            <Tab.Screen name="Settings" options={{headerShown: false}} component={RegisterScreen} />
+          </>
+        ) : (
+          <>
+            {/* don't show other options if user is not logged in  */}
+            <Tab.Screen name="Login" options={{headerShown: false}} component={LoginScreen} />
+            <Tab.Screen name="Register" options={{headerShown: false}} component={RegisterScreen} />
+          </> 
+        )}
       </Tab.Navigator>
     </NavigationContainer>
   );
