@@ -47,13 +47,13 @@ export default function PostListingScreen() {
                     <View style={styles.options}>
                         <View style={styles.option}>
                             <View style={styles.option}>
-                                <RadioButton label="Meat" onPress={onPress} />
+                                <RadioButton label="Donation" onPress={onPress} />
                             </View>
-                            <View style={styles.option}>
-                                <RadioButton label="Fruit & Veg" onPress={onPress} />
+                            <View style={[styles.option, { marginLeft: 20 }]}>
+                                <RadioButton label="Exchange" onPress={onPress} />
                             </View>
-                            <View style={[styles.option, { marginLeft: 50 }]}>
-                                <RadioButton label='Dairy' onPress={onPress} />
+                            <View style={[styles.option, { marginLeft: 20 }]}>
+                                <RadioButton label='Sell' onPress={onPress} />
                             </View>
                         </View>
 
@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
         width: 390,
         height: 135,
     },
+    
     title: {
         position: "absolute",
         top: 67,
