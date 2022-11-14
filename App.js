@@ -9,9 +9,9 @@ import IndividualListingScreen from './screens/IndividualListingScreen';
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <SearchScreen /> */}
+      <SearchScreen />
       {/* <SearchResultsScreen /> */}
-      <IndividualListingScreen />
+      {/* <IndividualListingScreen /> */}
       <StatusBar style="auto" />
     </View>
   );
