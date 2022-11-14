@@ -1,28 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
 import React from "react";
 import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
-
-import CheckBox from '../components/CheckBox';
-import RadioButton from '../components/RadioButton'
-import PublishButton from '../components/PublishButton';
-
+import IconButton from '../components/BackButton';
 
 export default function ListingConfirmation() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
+            <IconButton src='../assets/back-arrow.png' onPress={() => {}} />
                 <Text style={styles.title}>Your Listing Has Been Published!</Text>
                 <Text style={styles.text}>Strawberry Punnet</Text>
                 <Text style={styles.text2}>$2.00 - 20/102 George Street </Text>
                 <Text style={styles.expiry}>Expires 25/10/2022</Text>
                 <TextInput style={styles.inputTitle}
                     underlineColorAndroid="transparent"
-                    placeholder="Your listing is now live! Make sure to respond to any
+                    value="Your listing is now live! Make sure to respond to any
                     requests or messages received from potential buyers in
                     timely manner."
-                    placeholderTextColor="#A0A0A0"
+                    placeholderTextColor="#000000"
                     autoCapitalize="none"
-                //onChangeText = {this.handleEmail}
+                    multiline={true}
                 />
             </View>
         </View>
@@ -81,9 +77,10 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     inputTitle: {
-        height: 90,
+        height: 60,
         width: 365,
         margin: 12,
+        textAlign: 'center',
         borderWidth: 1,
         borderRadius: 15,
         borderColor: '#E4E4E4',

@@ -1,33 +1,83 @@
-import { StatusBar } from 'expo-status-bar';
 import React from "react";
-import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
-
-import CheckBox from '../components/CheckBox';
-import RadioButton from '../components/RadioButton'
-import PublishButton from '../components/PublishButton';
-
+import { StyleSheet, Text, View, TextInput, Image, Touchable, TouchableOpacity, Button } from 'react-native';
+import postListing from '../assets/postListingTile.png';
+import IconButton from '../components/BackButton';
 
 export default function UploadImage() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
+            <IconButton src='../assets/back-arrow.png' onPress={() => {}} />
                 <Text style={styles.title}>Upload Image/s</Text>
                 <Text style={styles.text}>Strawberry Punnet</Text>
-                <TextInput style={styles.inputTitle}
-                    underlineColorAndroid="transparent"
-                    placeholder="Title"
-                    placeholderTextColor="#A0A0A0"
-                    autoCapitalize="none"
-                //onChangeText = {this.handleEmail}
-                />
+                <Tile foodImg={postListing}/>
+                <Tile2 foodImg={postListing}/>
+                <Tile3 foodImg={postListing}/>
             </View>
         </View>
 
     );
 }
 
+const Tile = (props) => {
+    return (
+        <View style={styles.tile}>
+          <TouchableOpacity >
+              <Image source={props.foodImg} style={{width: "60%", height: 110, borderRadius: 10, marginBottom: 10}}/>
+              <Text style={styles.tileTitle}>{props.name}</Text>
+          </TouchableOpacity>
+        </View>
+    );
+  }
+  const Tile2 = (props) => {
+    return (
+        <View style={styles.tile2}>
+          <TouchableOpacity >
+              <Image source={props.foodImg} style={{width: "60%", height: 110, borderRadius: 10, marginBottom: 10}}/>
+              <Text style={styles.tileTitle}>{props.name}</Text>
+          </TouchableOpacity>
+        </View>
+    );
+  }
+  const Tile3 = (props) => {
+    return (
+        <View style={styles.tile3}>
+          <TouchableOpacity >
+              <Image source={props.foodImg} style={{width: "60%", height: 110, borderRadius: 10, marginBottom: 10}}/>
+              <Text style={styles.tileTitle}>{props.name}</Text>
+          </TouchableOpacity>
+        </View>
+    );
+  }
 
 const styles = StyleSheet.create({
+    tile: {
+        width: 185,
+        height: 185,
+        top: 176,
+        left: 16,
+        position: "absolute",
+      },
+      tile2: {
+        width: 185,
+        height: 185,
+        top: 176,
+        left: 140,
+        position: "absolute",
+      },
+      tile3: {
+        width: 185,
+        height: 185,
+        top: 176,
+        left: 264,
+        position: "absolute",
+      },
+      tileTitle: {
+        fontSize: 18,
+        fontWeight: "bold",
+        paddingBottom: 2,
+      },
+
     container: {
         flex: 1,
         flexDirection: "column",
@@ -48,7 +98,7 @@ const styles = StyleSheet.create({
     },
     text: {
         position: "absolute",
-        top: 177,
+        top: 134,
         fontSize: 20,
         left: 16,
         color: '#313131',
@@ -62,8 +112,8 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     inputTitle: {
-        height: 40,
-        width: 250,
+        height: 110,
+        width: 110,
         margin: 12,
         borderWidth: 1,
         borderRadius: 15,
@@ -71,7 +121,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E4E4E4',
         padding: 10,
         position: "absolute",
-        top: 120,
+        top: 180,
         fontSize: 12,
         left: 0,
     }

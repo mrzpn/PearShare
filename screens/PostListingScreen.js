@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
 import CheckBox from '../components/CheckBox';
 import RadioButton from '../components/RadioButton'
 import PublishButton from '../components/PublishButton';
-
+import CameraIconButton from '../components/ImageUpload';
 
 export default function PostListingScreen() {
     const [text, onChangeText] = React.useState("");
@@ -23,16 +23,18 @@ export default function PostListingScreen() {
                 />
                 <TextInput style={styles.inputPrice}
                     underlineColorAndroid="transparent"
-                    placeholder="$"
+                    placeholder="$ Price"
                     placeholderTextColor="#A0A0A0"
                     autoCapitalize="none"
                 //onChangeText = {this.handleEmail}
                 />
+                <CameraIconButton src='../assets/camera-icon.png' onPress={() => {}} />
                 <TextInput style={styles.inputDescription}
                     underlineColorAndroid="transparent"
                     placeholder="Description"
                     placeholderTextColor="#A0A0A0"
                     autoCapitalize="none"
+                    multiline={true}
                 //onChangeText = {this.handleEmail}
                 />
 
@@ -144,7 +146,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
 
-
     content: {
         flexDirection: 'column',
         justifyContent: 'flex-start',
@@ -167,7 +168,6 @@ const styles = StyleSheet.create({
         left: 3
 
     },
-    
     option2: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
@@ -206,7 +206,6 @@ const styles = StyleSheet.create({
         left: 16
     },
 
-
     input: {
         height: 40,
         margin: 12,
@@ -215,7 +214,7 @@ const styles = StyleSheet.create({
     },
     inputTitle: {
         height: 40,
-        width: 250,
+        width: 200,
         margin: 12,
         borderWidth: 1,
         borderRadius: 15,
@@ -239,7 +238,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         top: 120,
         fontSize: 12,
-        left: 260,
+        left: 210,
     },
     inputDescription: {
         height: 80,
@@ -250,14 +249,13 @@ const styles = StyleSheet.create({
         borderColor: '#E4E4E4',
         backgroundColor: '#E4E4E4',
         padding: 10,
+        paddingTop:10,
         position: "absolute",
         top: 170,
         fontSize: 12,
         left: 0,
     },
 
-   
-    
     inputExpiry: {
         position: "absolute",
         height: 30,
@@ -278,7 +276,6 @@ const styles = StyleSheet.create({
         top: 533,
         left: 227
     },
-
 
     inputAddress: {
         position: "absolute",
@@ -307,6 +304,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        top: 688
+        top: 678
     },
 });
