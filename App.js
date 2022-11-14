@@ -8,6 +8,11 @@ import RegisterScreen from './screens/RegisterScreen';
 
 const Tab = createBottomTabNavigator();
 
+
+import HomeScreen from './screens/HomeScreen'
+import SettingsScreen from './screens/SettingsScreen';
+import ViewListingsScreen from './screens/ViewListingsScreen'
+
 export default function App() {
   return (
     <NavigationContainer>
