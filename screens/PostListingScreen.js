@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
 import CheckBox from '../components/CheckBox';
 import RadioButton from '../components/RadioButton'
 import PublishButton from '../components/PublishButton';
-import CameraIconButton from '../components/ImageUpload';
+import CameraIconButton from '../components/ImageUploadButton';
 
 export default function PostListingScreen() {
     const [text, onChangeText] = React.useState("");
