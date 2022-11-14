@@ -33,9 +33,6 @@ export default function HomeScreen() {
           <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
           <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
         </View>
-        <View style={{width: "130%", height: 110, backgroundColor: "grey", position: "absolute", bottom: 0}}>
-          <Text style={{alignSelf: "center"}}>Nav Bar</Text>
-        </View>
       </View>
     );
 }

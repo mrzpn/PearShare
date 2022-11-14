@@ -5,13 +5,17 @@ import { Ionicons } from '@expo/vector-icons';
 
 // TODO: replace RegisterScreen with other screen imports
 import RegisterScreen from './screens/RegisterScreen';
+import HomeScreen from './screens/HomeScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import ViewListingsScreen from './screens/ViewListingsScreen';
+/*
+import LoginScreen from './screens/LoginScreen';
+import PostListingScreen from './screens/PostListingScreen';
+import SearchScreen from './screens/SearchScreen';
+*/
+
 
 const Tab = createBottomTabNavigator();
-
-
-import HomeScreen from './screens/HomeScreen'
-import SettingsScreen from './screens/SettingsScreen';
-import ViewListingsScreen from './screens/ViewListingsScreen'
 
 export default function App() {
   return (
@@ -45,11 +49,11 @@ export default function App() {
         })}
       >
         {/* TODO: fix routes once implemented */}
-        <Tab.Screen name="Explore" component={RegisterScreen} />
-        <Tab.Screen name="Search" component={RegisterScreen} />
-        <Tab.Screen name="Post" component={RegisterScreen} />
-        <Tab.Screen name="Listings" component={RegisterScreen} />
-        <Tab.Screen name="Settings" component={RegisterScreen} />
+        <Tab.Screen name="Explore" options={{headerShown: false}} component={HomeScreen} />
+        <Tab.Screen name="Search" options={{headerShown: false}} component={RegisterScreen} />
+        <Tab.Screen name="Post" options={{headerShown: false}} component={RegisterScreen} />
+        <Tab.Screen name="Listings" options={{headerShown: false}} component={ViewListingsScreen} />
+        <Tab.Screen name="Settings" options={{headerShown: false}} component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

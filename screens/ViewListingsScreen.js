@@ -35,9 +35,6 @@ export default function ViewListingsScreen() {
               <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
             </ScrollView>
           </View> 
-        <View style={{width: "130%", height: 110, backgroundColor: "grey", position: "absolute", bottom: 0}}>
-            <Text style={{alignSelf: "center"}}>Nav Bar</Text>
-        </View>
       </View>
     );
 }
