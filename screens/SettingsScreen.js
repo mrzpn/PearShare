@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, Switch} from "react-native";
+import { StyleSheet, Text, View, Image, Switch, TouchableOpacity, Button} from "react-native";
 // style sheet
 import {containers} from '../styles/Global';
 
 // Profile
 import jessica from '../assets/Jessica.png'
 
-export default function SettingsScreen() {
+export default function SettingsScreen({navigation}) {
   const [theme, setTheme] = useState(false);
   const toggleTheme = () => {
     setTheme(previousState => !previousState);
@@ -79,6 +79,9 @@ return (
           <Text style={[{color: theme ? 'white' : 'black'}, styleFonts.settingsFont]}>a***_*****</Text>
         </View>
     </View>
+    <TouchableOpacity style={styleContainers.registerButton} onPress={() => navigation.navigate('RegisterLogin')}>
+      <Text style={styleFonts.buttonText}>Logout</Text>
+    </TouchableOpacity>
   </View>
 );
 }
@@ -116,6 +119,15 @@ const styleContainers = StyleSheet.create({
       flexDirection: "row",
       justifyContent: "space-between",
     },
+    registerButton: {
+      backgroundColor: '#FF805E',
+      borderRadius: 10,
+      width: 100,
+      height: 30,
+      alignItems: 'center',
+      justifyContent: 'center',
+      alignSelf: 'center',
+  },
 });
 
 const styleFonts = StyleSheet.create({
@@ -132,4 +144,8 @@ const styleFonts = StyleSheet.create({
   settingsFont: {
     fontSize: 15,
   },
+  buttonText: {
+    color: 'white',
+    fontSize: 15,
+},
 });

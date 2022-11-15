@@ -1,15 +1,23 @@
 import { StyleSheet } from 'react-native';
+import { backgroundColor } from 'styled-system';
 
 export const containers = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
     alignItems: 'center',
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+    backgroundColor: 'white',
   },
   header: {
     width: "100%",
     height: 135,
+  },
+  shadowProp: {
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
 });
 

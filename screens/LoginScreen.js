@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Touchable } from 'react-native';
-import { Input, NativeBaseProvider, Link } from 'native-base';
+import { Input, NativeBaseProvider } from 'native-base';
 import { fonts } from '../styles/Global';
 
-function Login() {
+function LoginScreen({navigation}) {
     return (
         <NativeBaseProvider>
             <View style={styles.mainContainer}>
@@ -23,6 +23,7 @@ function Login() {
                 />
                 <Input
                     placeholder="Password"
+                    secureTextEntry={true}
                     variant="filled"
                     _light={{
                         placeholderTextColor: 'blueGray.400',
@@ -30,8 +31,7 @@ function Login() {
                     size="lg"
                     mt={4}
                 />
-                {/* TODO: login button navigates to homepage */}
-                <TouchableOpacity style={styles.loginButton}>
+                <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Home')}>
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
             </View>
@@ -39,13 +39,7 @@ function Login() {
     );
 }
 
-export default () => {
-    return (
-        <NativeBaseProvider>
-            <Login />
-        </NativeBaseProvider>
-    );
-}
+export default LoginScreen;
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -74,10 +68,9 @@ const styles = StyleSheet.create({
     loginButton: {
         backgroundColor: '#FF805E',
         borderRadius: 10,
-        padding: 15,
         margin: 15,
         width: 100,
-        height: 25,
+        height: 30,
         alignItems: 'center',
         justifyContent: 'center',
     },

@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 // style sheet
-import {containers, fonts} from '../styles/Global'
+import {containers, fonts} from '../styles/Global';
+import Tile3 from '../components/Tile3';
+import Tile2 from '../components/Tile2';
 
 // Foods
 import bacon from '../assets/foods/bacon.png'
@@ -37,32 +39,6 @@ export default function HomeScreen() {
     );
 }
 
-const Tile3 = (props) => {
-  return (
-    <View style={styleContainers.tile3}>
-      <TouchableOpacity>
-        <Image source={props.foodImg} style={{width: "100%", height: 75, borderRadius: 10, marginBottom: 3}}/>
-        <Text style={styleFonts.tileTitle}>{props.name}</Text>
-        <Text>{props.price} • {props.dist}</Text>
-        <Text style={{color: props.expCol}}>exp {props.exp}</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
-
-const Tile2 = (props) => {
-  return (
-    <View style={styleContainers.tile2}>
-      <TouchableOpacity>
-        <Image source={props.foodImg} style={{width: "100%", height: 110, borderRadius: 10, marginBottom: 3}}/>
-        <Text style={styleFonts.tileTitle}>{props.name}</Text>
-        <Text>{props.price} • {props.dist}</Text>
-        <Text>exp {props.exp}</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
-
 const styleContainers = StyleSheet.create({
     suggested: {
       width: 390,
@@ -81,16 +57,6 @@ const styleContainers = StyleSheet.create({
       height: 200,
       flexDirection: "row",
       justifyContent: "space-between",
-    },
-    tile3: {
-      width: 115,
-      height: 140,
-      top: 34,
-    },
-    tile2: {
-      width: 185,
-      height: 185,
-      top: 34,
     },
 });
 

@@ -1,11 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Input, NativeBaseProvider } from 'native-base';
-import { fonts } from '../styles/Global';
+import { fonts } from '../styles/Global'
 
-const loggedIn = false;
-
-function Register() {
+function RegisterScreen({navigation}) {
     return (
         <NativeBaseProvider>
             <View style={styles.mainContainer}>
@@ -34,6 +32,7 @@ function Register() {
                 />
                 <Input
                     placeholder="Password"
+                    secureTextEntry={true}
                     variant="filled"
                     _light={{
                         placeholderTextColor: 'blueGray.400',
@@ -43,6 +42,7 @@ function Register() {
                 />
                 <Input
                     placeholder="Confirm Password"
+                    secureTextEntry={true}
                     variant="filled"
                     _light={{
                         placeholderTextColor: 'blueGray.400',
@@ -50,22 +50,15 @@ function Register() {
                     size="lg"
                     mt={4}
                 />
-                {/* TODO: register button navigates to homepage */}
-                <TouchableOpacity style={styles.registerButton} onPress={() => loggedIn = true}>
+                <TouchableOpacity style={styles.registerButton} onPress={() => navigation.navigate('Home')}>
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>
             </View>
-        </NativeBaseProvider>
+         </NativeBaseProvider>
     );
 }
 
-export default () => {
-    return (
-        <NativeBaseProvider>
-            <Register />
-        </NativeBaseProvider>
-    );
-}
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -94,10 +87,9 @@ const styles = StyleSheet.create({
     registerButton: {
         backgroundColor: '#FF805E',
         borderRadius: 10,
-        padding: 15,
         margin: 15,
         width: 100,
-        height: 25,
+        height: 30,
         alignItems: 'center',
         justifyContent: 'center',
     },

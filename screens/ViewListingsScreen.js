@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, Touchable } from 'react-native';
 
 // style sheet
-import {containers, fonts} from '../styles/Global'
+import {containers, fonts} from '../styles/Global';
+import Tile3 from '../components/Tile3';
 
 // Foods
 import bacon from '../assets/foods/bacon.png';
@@ -37,19 +38,6 @@ export default function ViewListingsScreen() {
           </View> 
       </View>
     );
-}
-
-const Tile3 = (props) => {
-  return (
-    <View style={styleContainers.tile3}>
-      <TouchableOpacity>
-        <Image source={props.foodImg} style={{width: "100%", height: 75, borderRadius: 10, marginBottom: 3}}/>
-        <Text style={styleFonts.tileTitle}>{props.name}</Text>
-        <Text>{props.price} • {props.dist}</Text>
-        <Text style={{color: props.expCol}}>exp {props.exp}</Text>
-      </TouchableOpacity>
-    </View>
-  );
 }
 
 const Tile2 = (props) => {
@@ -107,7 +95,7 @@ const styleContainers = StyleSheet.create({
     },
     tile2: {
       width: 185,
-      height: 185,
+      height: 250,
       top: 34,
       marginRight: 20
     },
