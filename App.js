@@ -19,7 +19,6 @@ import SearchScreen from './screens/SearchScreen';
 import SearchResultsScreen from './screens/SearchResultsScreen';
 import IndividualListingScreen from './screens/IndividualListingScreen'
 import PostListingScreen from './screens/PostListingScreen';
-import SearchScreen from './screens/SearchScreen';
 
 const RegisterTab = createBottomTabNavigator();
 const HomeTab = createBottomTabNavigator();

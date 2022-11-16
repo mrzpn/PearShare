@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from "react";
 import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
+import { containers, fonts  } from '../styles/Global';
 
 import CheckBox from '../components/CheckBox';
 import RadioButton from '../components/RadioButton'
@@ -11,9 +12,9 @@ export default function PostListingScreen() {
     const [text, onChangeText] = React.useState("");
     const onPress = () => console.log("Button Pressed")
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.title}>Post A Listing</Text>
+        <View style={containers.container}>
+            <View style={containers.header}>
+                <Text style={fonts.title}>Post A Listing</Text>
                 <TextInput style={styles.inputTitle}
                     underlineColorAndroid="transparent"
                     placeholder="Title"
@@ -131,7 +132,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         alignItems: 'center',
-        paddingHorizontal: 16
     },
     header: {
         width: 390,
