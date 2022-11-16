@@ -19,16 +19,6 @@
     "expo-status-bar": "~1.4.0",
     "native-base": "^3.4.21",
     "react": "18.0.0",
-<<<<<<< HEAD
-    "react-native": "0.69.6",
-    "react-native-paper": "5.0.0-rc.5",
-    "@expo/vector-icons": "^13.0.0",
-    "@expo/webpack-config": "^0.17.0",
-    "react-dom": "18.0.0",
-    "react-native-bouncy-checkbox": "^3.0.5",
-    "react-native-web": "~0.18.7",
-    "rn-range-slider": "^2.2.2"
-=======
     "react-dom": "18.0.0",
     "react-native": "0.69.6",
     "react-native-bouncy-checkbox": "^3.0.5",
@@ -42,7 +32,6 @@
     "rn-range-slider": "^2.2.2",
     "styled-components": "^5.3.6",
     "styled-system": "^5.1.5"
->>>>>>> main
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
