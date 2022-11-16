@@ -1,68 +1,91 @@
-import { react } from 'react';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 
+// import screens
+// TODO: link remaining screens
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
+import HomeScreen from './screens/HomeScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import ViewListingsScreen from './screens/ViewListingsScreen';
+/* 
+import PostListingScreen from './screens/PostListingScreen';
+import SearchScreen from './screens/SearchScreen';
+*/
 
-import { loggedIn } from './screens/RegisterScreen';
+const RegisterTab = createBottomTabNavigator();
+const HomeTab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-const Tab = createBottomTabNavigator();
+function RegisterLogin() {
+  return (
+    <RegisterTab.Navigator {...{screenOptions}}>
+      <RegisterTab.Screen name="Register" component={RegisterScreen} options={{
+        tabBarIcon: ({color}) => {
+          return <Ionicons name={'ios-person-add'} size={30} color={color} />;
+        },
+      }}/>
+      <RegisterTab.Screen name="Login" component={LoginScreen} options={{
+        tabBarIcon: ({color}) => {
+          return <Ionicons name={'ios-log-in'} size={30} color={color} />;
+        },
+      }}/>
+    </RegisterTab.Navigator>
+  );
+}
+
+const screenOptions = {
+  headerShown: false,
+  tabBarStyle: {
+    height: 100,
+  },
+  tabBarActiveTintColor: 'black',
+}
+
+function Home() {
+  return (
+    <HomeTab.Navigator {...{screenOptions}}>
+      <HomeTab.Screen name="Explore" component={HomeScreen} options={{
+        tabBarIcon: ({color}) => {
+          return <Ionicons name={'ios-home'} size={20} color={color} />;
+        },
+      }}/>
+      <HomeTab.Screen name="Search" component={HomeScreen} options={{
+        tabBarIcon: ({color}) => {
+          return <Ionicons name={'ios-search'} size={20} color={color} />;
+        },
+      }}/>
+      <HomeTab.Screen name="Post" component={HomeScreen} options={{
+        tabBarIcon: ({color}) => {
+          return <Ionicons name={'ios-add'} size={45} color={color} />;
+        },
+        tabBarActiveTintColor: 'tomato',
+      }}/>
+      <HomeTab.Screen name="Listings" component={ViewListingsScreen} options={{
+        tabBarIcon: ({color}) => {
+          return <Ionicons name={'ios-list'} size={20} color={color} />;
+        },
+      }}/>
+      <HomeTab.Screen name="Settings" component={SettingsScreen} options={{
+        tabBarIcon: ({color}) => {
+          return <Ionicons name={'ios-settings'} size={20} color={color} />;
+        },
+      }}/>
+    </HomeTab.Navigator>
+  );
+}
+
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Explore') {
-              iconName = focused ? 'ios-home' : 'ios-home-outline';
-
-            } else if (route.name === 'Search') {
-              iconName = focused ? 'ios-search' : 'ios-search-outline';
-
-            } else if (route.name === 'Post') {
-              iconName = focused ? 'ios-add' : 'ios-add-outline';
-
-            } else if (route.name === 'Listings') {
-              iconName = focused ? 'ios-list' : 'ios-list-outline';
-
-            } else if (route.name === 'Settings') {
-              iconName = focused ? 'ios-settings' : 'ios-settings-outline';
-            
-            } else if (route.name === 'Login') {
-              iconName = focused ? 'ios-log-in' : 'ios-log-in-outline';
-            
-            } else if (route.name === 'Register') {
-              iconName = focused ? 'ios-person-add' : 'ios-person-add-outline';
-            }
-
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: 'black',
-          tabBarInactiveTintColor: 'gray',
-        })}
-      >
-        {loggedIn ? (
-          <>
-            {/* TODO: fix routes once implemented */}
-            <Tab.Screen name="Explore" options={{headerShown: false}} component={RegisterScreen} />
-            <Tab.Screen name="Search" options={{headerShown: false}} component={RegisterScreen} />
-            <Tab.Screen name="Post" options={{headerShown: false}} component={RegisterScreen} />
-            <Tab.Screen name="Listings" options={{headerShown: false}} component={RegisterScreen} />
-            <Tab.Screen name="Settings" options={{headerShown: false}} component={RegisterScreen} />
-          </>
-        ) : (
-          <>
-            {/* don't show other options if user is not logged in  */}
-            <Tab.Screen name="Login" options={{headerShown: false}} component={LoginScreen} />
-            <Tab.Screen name="Register" options={{headerShown: false}} component={RegisterScreen} />
-          </> 
-        )}
-      </Tab.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="RegisterLogin" component={RegisterLogin}/>
+        <Stack.Screen name="Home" component={Home}/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
