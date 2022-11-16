@@ -6,8 +6,11 @@ export const containers = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     alignItems: 'center',
-    paddingHorizontal: 16,
-    backgroundColor: 'white',
+    paddingHorizontal: 16
+  },
+  header: {
+    width: 390,
+    height: 135,
   },
   header: {
     width: "100%",
