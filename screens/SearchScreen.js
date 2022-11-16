@@ -48,7 +48,7 @@ export default function SearchScreen() {
           <View style={styles.option}>
             <RadioButton label="Donation" onPress={onPress} />
           </View>
-          <View style={styles.option}>
+          <View style={[styles.option, {marginLeft: 50}]}>
             <RadioButton label="Exchange" onPress={onPress} />
           </View>
           <View style={[styles.option, {marginLeft: 50}]}>
