@@ -1,4 +1,4 @@
-import { Text,TouchableOpacity} from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 
 const OrangeButton = (props) => {
   const label = props.label;
