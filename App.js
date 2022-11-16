@@ -1,3 +1,7 @@
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import UploadImage from './screens/UploadImage'; 
+import ListingConfirmation from './screens/ListingConfirmation';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -14,9 +18,7 @@ import ViewListingsScreen from './screens/ViewListingsScreen';
 import SearchScreen from './screens/SearchScreen';
 import SearchResultsScreen from './screens/SearchResultsScreen';
 import IndividualListingScreen from './screens/IndividualListingScreen'
-/* 
 import PostListingScreen from './screens/PostListingScreen';
-*/
 
 const RegisterTab = createBottomTabNavigator();
 const HomeTab = createBottomTabNavigator();
@@ -60,7 +62,7 @@ function Home() {
           return <Ionicons name={'ios-search'} size={20} color={color} />;
         },
       }}/>
-      <HomeTab.Screen name="Post" component={HomeScreen} options={{
+      <HomeTab.Screen name="Post" component={PostListingScreen} options={{
         tabBarIcon: ({color}) => {
           return <Ionicons name={'ios-add'} size={45} color={color} />;
         },
