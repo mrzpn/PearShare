@@ -25,6 +25,19 @@ const styles = {
     alignItems: 'center',
     borderRadius: 18,
     position: "absolute",
+    top: 70,
+    right: 15
+  },
+}
+const styles = {
+  button: {
+    backgroundColor: '#FF805E',
+    width: 36,
+    height: 36,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 18,
+    position: "absolute",
     top: 75,
     right: 15
   },
