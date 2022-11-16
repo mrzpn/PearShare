@@ -6,7 +6,8 @@ export const containers = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     alignItems: 'center',
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+    backgroundColor: 'white',
   },
   header: {
     width: 390,
@@ -18,7 +19,7 @@ export const containers = StyleSheet.create({
   },
   shadowProp: {
     shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: {height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },

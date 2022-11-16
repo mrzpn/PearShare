@@ -16,7 +16,6 @@ import SearchResultsScreen from './screens/SearchResultsScreen';
 import IndividualListingScreen from './screens/IndividualListingScreen'
 /* 
 import PostListingScreen from './screens/PostListingScreen';
-import SearchScreen from './screens/SearchScreen';
 */
 
 const RegisterTab = createBottomTabNavigator();
@@ -56,7 +55,7 @@ function Home() {
           return <Ionicons name={'ios-home'} size={20} color={color} />;
         },
       }}/>
-      <HomeTab.Screen name="Search" component={SearchResultsScreen} options={{
+      <HomeTab.Screen name="Search" component={SearchScreen} options={{
         tabBarIcon: ({color}) => {
           return <Ionicons name={'ios-search'} size={20} color={color} />;
         },
