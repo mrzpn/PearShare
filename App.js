@@ -11,6 +11,9 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import ViewListingsScreen from './screens/ViewListingsScreen';
+import SearchScreen from './screens/SearchScreen';
+import SearchResultsScreen from './screens/SearchResultsScreen';
+import IndividualListingScreen from './screens/IndividualListingScreen'
 /* 
 import PostListingScreen from './screens/PostListingScreen';
 import SearchScreen from './screens/SearchScreen';
@@ -53,7 +56,7 @@ function Home() {
           return <Ionicons name={'ios-home'} size={20} color={color} />;
         },
       }}/>
-      <HomeTab.Screen name="Search" component={HomeScreen} options={{
+      <HomeTab.Screen name="Search" component={SearchResultsScreen} options={{
         tabBarIcon: ({color}) => {
           return <Ionicons name={'ios-search'} size={20} color={color} />;
         },
