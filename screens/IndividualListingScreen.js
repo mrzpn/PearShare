@@ -7,7 +7,7 @@ import OrangeButton from '../components/OrangeButton';
 import IconButton from '../components/BackButton';
 import CloseButton from '../components/CloseButton';
 
-export default function IndividualListingScreen() {
+export default function IndividualListingScreen({navigation}) {
   const [modalVisible, setModalVisible] = React.useState(false);
   const quantity = 3;
   const item = 'Pears';
@@ -25,7 +25,7 @@ export default function IndividualListingScreen() {
       <View style={[containers.header, {flexDirection: 'row'}]}>
         {/* Title */}
         <Text style={fonts.title}>{title}</Text>
-        <IconButton src='../assets/back-arrow.png' onPress={() => {}} />
+        <IconButton src='../assets/back-arrow.png' onPress={() => navigation.navigate("Result")} />
       </View>
       <Image source={require(foodImg)} style={{width: 380, height: 250, borderRadius: 10}} />
       <Text

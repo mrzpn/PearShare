@@ -9,20 +9,17 @@ import tomato from '../assets/search-icon.png';
 import OrangeButton from '../components/OrangeButton';
 import IconButton from '../components/BackButton';
 
-export default function SearchResultsScreen() {
+export default function SearchResultsScreen({navigation}) {
   return (
     <View style={[containers.container]}>
       <View style={[containers.header]}>
         {/* Title */}
         <Text style={fonts.title}>Search Results</Text>
-        <IconButton src='../assets/back-arrow.png' onPress={() => {}} />
+        <IconButton src='../assets/back-arrow.png' onPress={() => navigation.navigate("Search")} />
       </View>
       <View style={styles.nearYou}>
-        <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
+        <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
         <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
-      </View>
-      <View style={[styles.center, {marginVertical: 20}]}>
-        <OrangeButton label='Back to search' onPress={() => {}} />
       </View>
     </View>
   );
@@ -31,7 +28,9 @@ export default function SearchResultsScreen() {
 const Tile2 = (props) => {
   return (
     <View style={styles.tile2}>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => props.navigation.navigate("Listing")}
+      >
         <Image source={props.foodImg} style={{width: "100%", height: 110, borderRadius: 10, marginBottom: 3}}/>
         <Text style={styles.tileTitle}>{props.name}</Text>
         <Text>{props.price} • {props.dist}</Text>

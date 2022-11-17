@@ -14,14 +14,15 @@ import ViewListingsScreen from './screens/ViewListingsScreen';
 import SearchScreen from './screens/SearchScreen';
 import SearchResultsScreen from './screens/SearchResultsScreen';
 import IndividualListingScreen from './screens/IndividualListingScreen'
+import { createStackNavigator } from '@react-navigation/stack';
 /* 
 import PostListingScreen from './screens/PostListingScreen';
-import SearchScreen from './screens/SearchScreen';
 */
 
 const RegisterTab = createBottomTabNavigator();
 const HomeTab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+const SearchStack = createStackNavigator();
 
 function RegisterLogin() {
   return (
@@ -56,7 +57,7 @@ function Home() {
           return <Ionicons name={'ios-home'} size={20} color={color} />;
         },
       }}/>
-      <HomeTab.Screen name="Search" component={SearchResultsScreen} options={{
+      <HomeTab.Screen name="Search" component={SearchScreen} options={{
         tabBarIcon: ({color}) => {
           return <Ionicons name={'ios-search'} size={20} color={color} />;
         },
@@ -81,6 +82,14 @@ function Home() {
   );
 }
 
+function Search() {
+  return (
+    <SearchStack.Navigator>
+      <SearchStack.Screen name="Result" component={SearchResultsScreen} />
+      <SearchStack.Screen name="Listing" component={IndividualListingScreen} />
+    </SearchStack.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -88,6 +97,8 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="RegisterLogin" component={RegisterLogin}/>
         <Stack.Screen name="Home" component={Home}/>
+        <Stack.Screen name="Result" component={SearchResultsScreen} />
+        <Stack.Screen name="Listing" component={IndividualListingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
