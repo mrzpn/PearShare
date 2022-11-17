@@ -89,17 +89,17 @@ export default function PostListingScreen() {
           <View style={styles.expiry}>
             <Text style={styles.subtitle}>Expiry Date:</Text>
             {/* <TextInput style={styles.inputLong} {...fieldStyle} placeholder="Expiry..."/> */}
-            <View style={{right: 272}}>
-              <DateTimePicker
-                testID="dateTimePicker"
-                value={date}
-                mode={mode}
-                is24Hour={true}
-                onChange={onChange}
-              />
-            </View>
+              <View style={{marginRight: 135, marginTop: 5, width: 150}}>
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  value={date}
+                  mode={mode}
+                  is24Hour={true}
+                  onChange={onChange}
+                />
+              </View>         
           </View>
-          <View style={styles.expiry}>
+          <View style={styles.location}>
             <Text style={styles.subtitle}>Location:</Text>
             <TextInput style={styles.inputLong} {...fieldStyle} placeholder="Location..."/>
           </View>
@@ -200,7 +200,6 @@ return (
                 placeholder="DD / MM / YYYY"
                 placeholderTextColor="#A0A0A0"
                 autoCapitalize="none"
-            //onChangeText = {this.handleEmail}
             />
             <View style={[styles.estimate, { padding: 0 }]}>
                 <CheckBox label='Tick if near expiry' onPress={onPress} />
@@ -211,7 +210,6 @@ return (
                 placeholder="Enter Address..."
                 placeholderTextColor="#A0A0A0"
                 autoCapitalize="none"
-            //onChangeText = {this.handleEmail}
             />
             <View style={[styles.current]}>
                 <CheckBox label='Use my current address' onPress={onPress} />
@@ -253,7 +251,9 @@ const styles = StyleSheet.create({
   },
   typeofListing: {
     width: "100%",
-    height: 75,
+    height: 80,
+    paddingBottom: 5,
+    justifyContent: "space-between",
   },
   typeofFood: {
     width: "100%",
@@ -262,18 +262,26 @@ const styles = StyleSheet.create({
   },
   expiry: {
     width: "100%",
-    height: 75,
+    paddingTop: 10,
+    height: 45,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  location: {
+    width: "100%",
+    height: 100,
+    paddingTop: 10,
   },
   subtitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    paddingVertical: 5,
+    paddingVertical: 10,
   },
   content: {
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    width: '100%'
+    width: '100%',
   },
   options: {
     width: '100%',
@@ -350,7 +358,7 @@ const styles = StyleSheet.create({
   // },
   current: {
     width: '100%',
-    paddingTop: 10,
+    paddingTop: 5,
   },
   publish: {
       width: '100%',
