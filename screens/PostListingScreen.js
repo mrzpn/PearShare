@@ -1,13 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {useState} from "react";
 import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
 import { containers, fonts  } from '../styles/Global';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-import CheckBox from '../components/CheckBox';
-import RadioButton from '../components/RadioButton'
-import PublishButton from '../components/PublishButton';
 import CameraIconButton from '../components/ImageUploadButton';
+import CheckBox from '../components/CheckBox';
+import PublishButton from '../components/PublishButton';
+import RadioButton from '../components/RadioButton'
 
 export default function PostListingScreen() {
     const [text, onChangeText] = React.useState("");
@@ -88,7 +87,6 @@ export default function PostListingScreen() {
           </View>
           <View style={styles.expiry}>
             <Text style={styles.subtitle}>Expiry Date:</Text>
-            {/* <TextInput style={styles.inputLong} {...fieldStyle} placeholder="Expiry..."/> */}
               <View style={{marginRight: 135, marginTop: 5, width: 150}}>
                 <DateTimePicker
                   testID="dateTimePicker"
@@ -118,111 +116,6 @@ const fieldStyle = (props) => {
   underlineColorAndroid="transparent"
   placeholderTextColor="#A0A0A0"
   autoCapitalize="none"
-}
-
-function temp() {
-return (
-    <View style={containers.container}>
-        <View style={containers.header}>
-            <Text style={fonts.title}>Post A Listing</Text>
-            <TextInput style={styles.inputTitle}
-                underlineColorAndroid="transparent"
-                placeholder="Title"
-                placeholderTextColor="#A0A0A0"
-                autoCapitalize="none"
-            />
-            <TextInput style={styles.inputPrice}
-                underlineColorAndroid="transparent"
-                placeholder="$ Price"
-                placeholderTextColor="#A0A0A0"
-                autoCapitalize="none"
-            />
-            <CameraIconButton src='../assets/camera-icon.png' onPress={() => {}} />
-            <TextInput style={styles.inputDescription}
-                underlineColorAndroid="transparent"
-                placeholder="Description"
-                placeholderTextColor="#A0A0A0"
-                autoCapitalize="none"
-                multiline={true}
-            />
-
-            <Text style={styles.listingHeader}>Type of Listing:</Text>
-            <Text style={styles.typeHeader}>Type of Food/Drink:</Text>
-            <Text style={styles.expiryHeader}>Expiry Date:</Text>
-            <Text style={styles.locationHeader}>Location:</Text>
-
-            <View style={styles.content}>
-                <View style={styles.options}>
-                    <View style={styles.option}>
-                        <View style={styles.option}>
-                            <RadioButton label="Donation" onPress={onPress} />
-                        </View>
-                        <View style={[styles.option, { marginLeft: 20 }]}>
-                            <RadioButton label="Exchange" onPress={onPress} />
-                        </View>
-                        <View style={[styles.option, { marginLeft: 20 }]}>
-                            <RadioButton label='Sell' onPress={onPress} />
-                        </View>
-                    </View>
-                </View>
-            </View>
-
-            {/* Type of food/drink */}
-            <View style={styles.content}>
-                {/* Row 1 */}
-                <View style={styles.optionFoodDrink}>
-                    <View style={styles.optionFood}>
-                        <CheckBox label="Meat" onPress={onPress} />
-                    </View>
-                    <View style={styles.optionFood}>
-                        <CheckBox label="Fruit & Veg" onPress={onPress} />
-                    </View>
-                    <View style={[styles.optionFood, { marginLeft: 50 }]}>
-                        <CheckBox label='Dairy' onPress={onPress} />
-                    </View>
-                </View>
-                {/* Row 2 */}
-                <View style={styles.optionFoodDrink}>
-                    <View style={styles.optionFood}>
-                        <CheckBox label="Carbs" onPress={onPress} />
-                    </View>
-                    <View style={styles.optionFood}>
-                        <CheckBox label="Confectionary" onPress={onPress} />
-                    </View>
-                    <View style={[styles.optionFood, { marginLeft: 50 }]}>
-                        <CheckBox label='Other' onPress={onPress} />
-                    </View>
-                </View>
-            </View>
-            
-            <TextInput style={styles.inputLong}
-                underlineColorAndroid="transparent"
-                placeholder="DD / MM / YYYY"
-                placeholderTextColor="#A0A0A0"
-                autoCapitalize="none"
-            />
-            <View style={[styles.estimate, { padding: 0 }]}>
-                <CheckBox label='Tick if near expiry' onPress={onPress} />
-            </View>
-
-            <TextInput style={styles.inputAddress}
-                underlineColorAndroid="transparent"
-                placeholder="Enter Address..."
-                placeholderTextColor="#A0A0A0"
-                autoCapitalize="none"
-            />
-            <View style={[styles.current]}>
-                <CheckBox label='Use my current address' onPress={onPress} />
-            </View>
-
-            <View style={[styles.publish, { marginVertical: 20 }]}>
-                <PublishButton label='Publish' onPress={onPress} />
-            </View>
-
-        </View>
-    </View>
-
-  );
 }
 
 const styles = StyleSheet.create({    
@@ -314,7 +207,7 @@ const styles = StyleSheet.create({
     width: "95%",
     alignSelf: "flex-start",
     backgroundColor: '#E4E4E4',
-    padding: 3,
+    padding: 10,
     borderRadius: 15,
     borderColor: '#E4E4E4',
     fontSize: 12,
@@ -327,35 +220,31 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderColor: '#E4E4E4',
     backgroundColor: '#E4E4E4',
-    padding: 3,
+    padding: 10,
     fontSize: 12,
   },
   inputDescription: {
-      height: "95%",
-      width: "100%",
-      marginTop: 10,
-      borderWidth: 1,
-      borderRadius: 15,
-      padding: 10,
-      borderColor: '#E4E4E4',
-      backgroundColor: '#E4E4E4',
-      fontSize: 12,
-      textAlignVertical: 'top'
+    height: "95%",
+    width: "100%",
+    marginTop: 10,
+    borderRadius: 15,
+    paddingTop: 10,
+    padding: 10,
+    borderColor: '#E4E4E4',
+    backgroundColor: '#E4E4E4',
+    fontSize: 12,
+    textAlignVertical: 'top'
   },
   inputLong: {
-      height: 40,
-      width: "100%",
-      borderWidth: 1,
-      borderRadius: 10,
-      borderColor: '#E4E4E4',
-      backgroundColor: '#E4E4E4',
-      fontSize: 12,
+    height: 40,
+    width: "100%",
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    borderColor: '#E4E4E4',
+    backgroundColor: '#E4E4E4',
+    fontSize: 12,
   },
-  // estimate: {
-  //     width: '100%',
-  //     top: 533,
-  //     left: 227
-  // },
   current: {
     width: '100%',
     paddingTop: 5,
