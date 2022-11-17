@@ -9,6 +9,7 @@ function RegisterScreen({navigation}) {
             <View style={styles.mainContainer}>
                 <Text style={fonts.titleWelcome}>Welcome to</Text>
                 <Image style={styles.logoImage} source={require('../assets/logoExclaim.png')} />
+                <Text style={fonts.titleLogin}>Register</Text>
             </View>
 
             <View style={styles.formContainer}>
