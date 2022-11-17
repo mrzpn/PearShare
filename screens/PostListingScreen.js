@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import React from "react";
+import React, {useState} from "react";
 import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
 import { containers, fonts  } from '../styles/Global';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import CheckBox from '../components/CheckBox';
 import RadioButton from '../components/RadioButton'
@@ -10,7 +11,18 @@ import CameraIconButton from '../components/ImageUploadButton';
 
 export default function PostListingScreen() {
     const [text, onChangeText] = React.useState("");
-    const onPress = () => console.log("Button Pressed")
+    let currDate = new Date()
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+    const [date, setDate] = useState(new Date(currDate));
+
+    const onChange = (event, selectedDate) => {
+      const currentDate = selectedDate;
+      setShow(false);
+      setDate(currentDate);
+    };
+    const onPress = () => console.log("Button Pressed");
+    
     return (
       <View style={containers.container}>
         <View style={containers.header}>
@@ -76,7 +88,16 @@ export default function PostListingScreen() {
           </View>
           <View style={styles.expiry}>
             <Text style={styles.subtitle}>Expiry Date:</Text>
-            <TextInput style={styles.inputLong} {...fieldStyle} placeholder="Expiry..."/>
+            {/* <TextInput style={styles.inputLong} {...fieldStyle} placeholder="Expiry..."/> */}
+            <View style={{right: 272}}>
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                onChange={onChange}
+              />
+            </View>
           </View>
           <View style={styles.expiry}>
             <Text style={styles.subtitle}>Location:</Text>
