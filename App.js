@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
@@ -22,6 +23,7 @@ import ViewListingsScreen from './screens/ViewListingsScreen';
 const RegisterTab = createBottomTabNavigator();
 const HomeTab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+const SearchStack = createStackNavigator();
 
 function RegisterLogin() {
   return (
@@ -81,6 +83,14 @@ function Home() {
   );
 }
 
+function Search() {
+  return (
+    <SearchStack.Navigator>
+      <SearchStack.Screen name="Result" component={SearchResultsScreen} />
+      <SearchStack.Screen name="Listing" component={IndividualListingScreen} />
+    </SearchStack.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -88,6 +98,8 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="RegisterLogin" component={RegisterLogin}/>
         <Stack.Screen name="Home" component={Home}/>
+        <Stack.Screen name="Result" component={SearchResultsScreen} />
+        <Stack.Screen name="Listing" component={IndividualListingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

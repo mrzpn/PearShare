@@ -12,7 +12,7 @@ import ribs from '../assets/foods/ribs.png';
 import tomato from '../assets/foods/tomato.png';
 import postListing from '../assets/postListingTile.png';
 
-export default function ViewListingsScreen() {
+export default function ViewListingsScreen({navigation}) {
     return (
       <View style={containers.container}>
         <View style={containers.header}>
@@ -20,20 +20,25 @@ export default function ViewListingsScreen() {
         </View>
         <View style={styleContainers.myListings}>
           <Text style={styleFonts.subtitle}>My listings:</Text>
-          <Tile1 foodImg={postListing}/>
+          <View style={styleContainers.tile1}>
+            <TouchableOpacity onPress={() => navigation.navigate('Post')}>
+                <Image source={postListing} style={{width: "100%", height: 110, borderRadius: 10, marginBottom: 3}}/>
+                <Text style={styleFonts.tileTitle}></Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styleContainers.recentlyViewed}>
           <Text style={styleFonts.subtitle}>Recently viewed:</Text>
-          <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="21/11" expCol="red"/>
-          <Tile3 foodImg={pasta} name="Pasta" price="$10" dist="15km" exp="10/12"/>
-          <Tile3 foodImg={bacon} name="Bacon" price="$7" dist="1 - 5km" exp="20/11" expCol="red"/>
+          <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="21/11" expCol="red" quantity={4} navigation={navigation}/>
+          <Tile3 foodImg={pasta} name="Pasta" price="$10" dist="15km" exp="10/12" quantity={15} navigation={navigation}/>
+          <Tile3 foodImg={bacon} name="Bacon" price="$7" dist="1 - 5km" exp="20/11" quantity={2} navigation={navigation}/>
         </View>
           <View style={styleContainers.pastOrders}>
             <Text style={styleFonts.subtitle}>Past orders:</Text>
             <ScrollView horizontal={true} vertical={false}>
-              <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="02/11"/>
-              <Tile2 foodImg={ribs} name="Ribs" price="$24" dist="5 - 10km" exp="14/9"/>
-              <Tile2 foodImg={pasta} name="Pasta" price="$12" dist="2km" exp="10/8"/>
+              <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="02/11" quantity={7} navigation={navigation}/>
+              <Tile2 foodImg={ribs} name="Ribs" price="$24" dist="5 - 10km" exp="14/9" navigation={navigation}/>
+              <Tile2 foodImg={pasta} name="Pasta" price="$12" dist="2km" quantity={4} navigation={navigation}/>
             </ScrollView>
           </View> 
       </View>
@@ -43,7 +48,16 @@ export default function ViewListingsScreen() {
 const Tile2 = (props) => {
   return (
     <View style={styleContainers.tile2}>
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={containers.shadowProp}
+        onPress={() => props.navigation.navigate("Listing", {params: {
+          item: props.name,
+          quantity: props.quantity,
+          foodImg: props.foodImg,
+          price: props.price,
+          dist: props.dist,
+          exp: props.exp,
+        }})}>
         <Image source={props.foodImg} style={{width: "100%", height: 110, borderRadius: 10, marginBottom: 3}}/>
         <Text style={styleFonts.tileTitle}>{props.name}</Text>
         <Text>{props.price} • {props.dist}</Text>
