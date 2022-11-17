@@ -65,7 +65,7 @@ return (
       <Text style={[{color: theme ? 'white' : 'black'}, styleFonts.settingsFont]}>PROFILE SETTINGS</Text>
       <View style={{ borderBottomColor: theme? '#fff' : '#313131', borderBottomWidth: StyleSheet.hairlineWidth}}></View>
     </View>
-    <View style={styleContainers.settingsContainer}>
+    <View style={styleContainers.settingsProfileContainer}>
         <View style={styleContainers.settings}>
           <Text style={[{color: theme ? 'white' : 'black'}, styleFonts.settingsFont]}>Email</Text>
           <Text style={[{color: theme ? 'white' : 'black'}, styleFonts.settingsFont]}>JHuang123@gmail.com</Text>
@@ -77,6 +77,10 @@ return (
         <View style={styleContainers.settings}>
           <Text style={[{color: theme ? 'white' : 'black'}, styleFonts.settingsFont]}>Password</Text>
           <Text style={[{color: theme ? 'white' : 'black'}, styleFonts.settingsFont]}>a***_*****</Text>
+        </View>
+        <View style={styleContainers.settings}>
+          <Text style={[{color: theme ? 'white' : 'black'}, styleFonts.settingsFont]}>Address</Text>
+          <Text style={[{color: theme ? 'white' : 'black'}, styleFonts.settingsFont]}>12 Happy Lane, Happyville, 2150</Text>
         </View>
     </View>
     <TouchableOpacity style={styleContainers.registerButton} onPress={() => navigation.navigate('RegisterLogin')}>
@@ -99,7 +103,8 @@ const styleContainers = StyleSheet.create({
     },
     profileName: {
       width: "100%",
-      height: 60,
+      height: 40,
+      paddingTop: 10,
       alignItems: "center",
       justifyContent: "center",
     },
@@ -111,6 +116,11 @@ const styleContainers = StyleSheet.create({
     settingsContainer: {
       width: "100%",
       height: 120,
+      justifyContent: "space-between",
+    },
+    settingsProfileContainer: {
+      width: "100%",
+      height: 150,
       justifyContent: "space-between",
     },
     settings: {
