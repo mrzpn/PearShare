@@ -15,6 +15,10 @@ git pull
 3. Install packages: `npm install`
 4. Run the app with `npx expo start` and follow the terminal instructions to run the app on your device.
 
+## Notes
+Please make sure XCode is running with iPhone 14 Pro Max simulator.
+Select this by File > Open Simulator > iPhone 14 Pro Max
+
 ## 😎 Credits
 Built by [Lauren](https://github.com/lkihuynh), [Ryan](https://github.com/R-Tramsport), [Mariya](https://github.com/mrzpn) and [Will](https://github.com/WilliamLazaris).
 

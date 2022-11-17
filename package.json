@@ -32,7 +32,8 @@
     "react-native-web": "~0.18.7",
     "rn-range-slider": "^2.2.2",
     "styled-components": "^5.3.6",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "@react-native-community/datetimepicker": "6.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

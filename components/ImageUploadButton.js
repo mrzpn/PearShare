@@ -23,9 +23,6 @@ const styles = {
     width: 40,
     height: 40,
     borderRadius: 15,
-    position: "absolute",
-    top: 132,
     padding: 8,
-    left: 320,
   },
 }
