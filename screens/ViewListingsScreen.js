@@ -29,16 +29,16 @@ export default function ViewListingsScreen({navigation}) {
         </View>
         <View style={styleContainers.recentlyViewed}>
           <Text style={styleFonts.subtitle}>Recently viewed:</Text>
-          <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
-          <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
-          <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
+          <Tile3 foodImg={pears} name="Pears" quantity={4} price="$5" dist="1 - 5km" exp="10/8" expCol="red" navigation={navigation}/>
+          <Tile3 foodImg={pasta} name="Pasta" quantity={15} price="$5" dist="1 - 5km" exp="10/8" expCol="red" navigation={navigation}/>
+          <Tile3 foodImg={bacon} name="Bacon" quantity={2} price="$5" dist="1 - 5km" exp="10/8" expCol="red" navigation={navigation}/>
         </View>
           <View style={styleContainers.pastOrders}>
             <Text style={styleFonts.subtitle}>Past orders:</Text>
             <ScrollView horizontal={true} vertical={false}>
-              <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
-              <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
-              <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
+              <Tile2 foodImg={tomato} name="Tomatoes" quantity={7} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
+              <Tile2 foodImg={ribs} name="Ribs" quantity={3} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
+              <Tile2 foodImg={ribs} name="Ribs" quantity={4} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
             </ScrollView>
           </View> 
       </View>
@@ -48,7 +48,16 @@ export default function ViewListingsScreen({navigation}) {
 const Tile2 = (props) => {
   return (
     <View style={styleContainers.tile2}>
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={containers.shadowProp}
+        onPress={() => props.navigation.navigate("Listing", {params: {
+          item: props.name,
+          quantity: props.quantity,
+          foodImg: props.foodImg,
+          price: props.price,
+          dist: props.dist,
+          exp: props.exp,
+        }})}>
         <Image source={props.foodImg} style={{width: "100%", height: 110, borderRadius: 10, marginBottom: 3}}/>
         <Text style={styleFonts.tileTitle}>{props.name}</Text>
         <Text>{props.price} • {props.dist}</Text>

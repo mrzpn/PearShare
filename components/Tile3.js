@@ -4,7 +4,15 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 const Tile3 = (props) => {
     return (
       <View style={styleContainers.tile3}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("Listing", {params: {
+            item: props.name,
+            quantity: props.quantity,
+            foodImg: props.foodImg,
+            price: props.price,
+            dist: props.dist,
+            exp: props.exp,
+          }})}>
           <View style={styleContainers.shadowProp}>
             <Image source={props.foodImg} style={{width: "100%", height: 75, borderRadius: 10, marginBottom: 3}}/>
           </View>

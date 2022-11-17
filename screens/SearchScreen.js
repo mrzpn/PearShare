@@ -27,7 +27,7 @@ export default function SearchScreen({navigation}) {
       (
         <>
           <View style={[{flexDirection: 'row', justifyContent: 'center'}, styles.topRightCorner]}>
-            <OrangeButton label="Toggle Search Bar" onPress={() => setFilter(!filter)} />
+            <OrangeButton label="Search by Keywords" onPress={() => setFilter(!filter)} />
           </View>
           {/* Type of listing */}
           <Text style={styles.header}>Type of Listing:</Text>
@@ -95,7 +95,7 @@ export default function SearchScreen({navigation}) {
       ) : (
         <>
           <View style={[{flexDirection: 'row', justifyContent: 'center'}, styles.topRightCorner]}>
-            <OrangeButton label="Toggle Filter" onPress={() => setFilter(!filter)} />
+            <OrangeButton label="Search by Filter" onPress={() => setFilter(!filter)} />
           </View>
           {/* Search by keywords */}
           <View style={[styles.container]}>

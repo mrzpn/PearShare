@@ -12,7 +12,7 @@ import pears from '../assets/foods/pears.png'
 import ribs from '../assets/foods/ribs.png'
 import tomato from '../assets/foods/tomato.png'
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
     return (
       <View style={containers.container}>
         <View style={containers.header}>
@@ -20,20 +20,20 @@ export default function HomeScreen() {
         </View>
         <View style={styleContainers.suggested}>
           <Text style={styleFonts.subtitle}>Suggested Listings:</Text>
-          <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8"/>
-          <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8"/>
-          <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8"/>
+          <Tile3 foodImg={pears} name="Pears" quantity={4} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
+          <Tile3 foodImg={pasta} name="Pasta" quantity={2} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
+          <Tile3 foodImg={bacon} name="Bacon" quantity={12} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
         </View>
         <View style={styleContainers.nearYou}>
           <Text style={styleFonts.subtitle}>Near you:</Text>
-          <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="10/8"/>
-          <Tile2 foodImg={ribs} name="Ribs" price="$5" dist="1 - 5km" exp="10/8"/>
+          <Tile2 foodImg={tomato} name="Tomatoes" quantity={5} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
+          <Tile2 foodImg={ribs} name="Ribs" quantity={7} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
         </View>
         <View style={styleContainers.expiring}>
           <Text style={styleFonts.subtitle}>Expiring soon:</Text>
-          <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
-          <Tile3 foodImg={pasta} name="Pasta" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
-          <Tile3 foodImg={bacon} name="Bacon" price="$5" dist="1 - 5km" exp="10/8" expCol="red"/>
+          <Tile3 foodImg={pears} name="Pears" quantity={9} price="$5" dist="1 - 5km" exp="10/8" expCol="red" navigation={navigation}/>
+          <Tile3 foodImg={pasta} name="Pasta" quantity={1} price="$5" dist="1 - 5km" exp="10/8" expCol="red" navigation={navigation}/>
+          <Tile3 foodImg={bacon} name="Bacon" quantity={3} price="$5" dist="1 - 5km" exp="10/8" expCol="red" navigation={navigation}/>
         </View>
       </View>
     );
