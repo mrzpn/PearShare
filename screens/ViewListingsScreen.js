@@ -12,7 +12,7 @@ import ribs from '../assets/foods/ribs.png';
 import tomato from '../assets/foods/tomato.png';
 import postListing from '../assets/postListingTile.png';
 
-export default function ViewListingsScreen() {
+export default function ViewListingsScreen({navigation}) {
     return (
       <View style={containers.container}>
         <View style={containers.header}>
@@ -20,7 +20,12 @@ export default function ViewListingsScreen() {
         </View>
         <View style={styleContainers.myListings}>
           <Text style={styleFonts.subtitle}>My listings:</Text>
-          <Tile1 foodImg={postListing}/>
+          <View style={styleContainers.tile1}>
+            <TouchableOpacity onPress={() => navigation.navigate('Post')}>
+                <Image source={postListing} style={{width: "100%", height: 110, borderRadius: 10, marginBottom: 3}}/>
+                <Text style={styleFonts.tileTitle}></Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styleContainers.recentlyViewed}>
           <Text style={styleFonts.subtitle}>Recently viewed:</Text>
