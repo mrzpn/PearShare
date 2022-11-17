@@ -103,6 +103,10 @@ const styleContainers = StyleSheet.create({
       width: 185,
       height: 185,
       top: 34,
+      shadowColor: '#171717',
+      shadowOffset: {height: 4},
+      shadowOpacity: 0.2,
+      shadowRadius: 3,
     }
 });
 
