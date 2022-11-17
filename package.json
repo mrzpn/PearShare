@@ -22,6 +22,7 @@
     "react-dom": "18.0.0",
     "react-native": "0.69.6",
     "react-native-bouncy-checkbox": "^3.0.5",
+    "react-native-date-picker": "^4.2.6",
     "react-native-event-listeners": "^1.0.7",
     "react-native-gesture-handler": "~2.5.0",
     "react-native-paper": "^4.12.5",

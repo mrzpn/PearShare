@@ -62,8 +62,6 @@ export default function PostListingScreen() {
                 </View>
 
                 {/* Type of food/drink */}
-
-
                 <View style={styles.content}>
                     {/* Row 1 */}
                     <View style={styles.options}>
@@ -90,9 +88,7 @@ export default function PostListingScreen() {
                         </View>
                     </View>
                 </View>
-
-
-
+                
                 <TextInput style={styles.inputExpiry}
                     underlineColorAndroid="transparent"
                     placeholder="DD / MM / YYYY"
@@ -101,9 +97,8 @@ export default function PostListingScreen() {
                 //onChangeText = {this.handleEmail}
                 />
                 <View style={[styles.estimate, { padding: 0 }]}>
-                    <CheckBox label='Tick if estimate' onPress={onPress} />
+                    <CheckBox label='Tick if near expiry' onPress={onPress} />
                 </View>
-
 
                 <TextInput style={styles.inputAddress}
                     underlineColorAndroid="transparent"
