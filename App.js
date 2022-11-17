@@ -1,24 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import UploadImage from './screens/UploadImage'; 
-import ListingConfirmation from './screens/ListingConfirmation';
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
 
 // import screens
-// TODO: link remaining screens
-import RegisterScreen from './screens/RegisterScreen';
-import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
-import SettingsScreen from './screens/SettingsScreen';
-import ViewListingsScreen from './screens/ViewListingsScreen';
-import SearchScreen from './screens/SearchScreen';
-import SearchResultsScreen from './screens/SearchResultsScreen';
-import IndividualListingScreen from './screens/IndividualListingScreen'
+import IndividualListingScreen from './screens/IndividualListingScreen';
+import ListingConfirmation from './screens/ListingConfirmation';
+import LoginScreen from './screens/LoginScreen';
 import PostListingScreen from './screens/PostListingScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import SearchResultsScreen from './screens/SearchResultsScreen';
+import SearchScreen from './screens/SearchScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import UploadImage from './screens/UploadImage'; 
+import ViewListingsScreen from './screens/ViewListingsScreen';
 
 const RegisterTab = createBottomTabNavigator();
 const HomeTab = createBottomTabNavigator();
