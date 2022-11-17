@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
-
 import { containers, fonts  } from '../styles/Global';
-
 import CheckBox from '../components/CheckBox';
 import RadioButton from '../components/RadioButton';
 import SearchBar from '../components/SearchBar';

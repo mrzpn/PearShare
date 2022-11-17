@@ -29,16 +29,16 @@ export default function ViewListingsScreen({navigation}) {
         </View>
         <View style={styleContainers.recentlyViewed}>
           <Text style={styleFonts.subtitle}>Recently viewed:</Text>
-          <Tile3 foodImg={pears} name="Pears" quantity={4} price="$5" dist="1 - 5km" exp="10/8" expCol="red" navigation={navigation}/>
-          <Tile3 foodImg={pasta} name="Pasta" quantity={15} price="$5" dist="1 - 5km" exp="10/8" expCol="red" navigation={navigation}/>
-          <Tile3 foodImg={bacon} name="Bacon" quantity={2} price="$5" dist="1 - 5km" exp="10/8" expCol="red" navigation={navigation}/>
+          <Tile3 foodImg={pears} name="Pears" price="$5" dist="1 - 5km" exp="21/11" expCol="red" quantity={4} navigation={navigation}/>
+          <Tile3 foodImg={pasta} name="Pasta" price="$10" dist="15km" exp="10/12" quantity={15} navigation={navigation}/>
+          <Tile3 foodImg={bacon} name="Bacon" price="$7" dist="1 - 5km" exp="20/11" quantity={2} navigation={navigation}/>
         </View>
           <View style={styleContainers.pastOrders}>
             <Text style={styleFonts.subtitle}>Past orders:</Text>
             <ScrollView horizontal={true} vertical={false}>
-              <Tile2 foodImg={tomato} name="Tomatoes" quantity={7} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
-              <Tile2 foodImg={ribs} name="Ribs" quantity={3} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
-              <Tile2 foodImg={ribs} name="Ribs" quantity={4} price="$5" dist="1 - 5km" exp="10/8" navigation={navigation}/>
+              <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="02/11" quantity={7} navigation={navigation}/>
+              <Tile2 foodImg={ribs} name="Ribs" price="$24" dist="5 - 10km" exp="14/9" navigation={navigation}/>
+              <Tile2 foodImg={pasta} name="Pasta" price="$12" dist="2km" quantity={4} navigation={navigation}/>
             </ScrollView>
           </View> 
       </View>
