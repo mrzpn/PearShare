@@ -7,27 +7,28 @@ import OrangeButton from '../components/OrangeButton';
 import IconButton from '../components/BackButton';
 import CloseButton from '../components/CloseButton';
 
-export default function IndividualListingScreen() {
+export default function IndividualListingScreen({ route, navigation}) {
   const [modalVisible, setModalVisible] = React.useState(false);
-  const quantity = 3;
-  const item = 'Pears';
+  const params = route.params.params;
+  const quantity = params.quantity;
+  const item = params.item;
   const title = `${item} (${quantity})`;
-  const foodImg = '../assets/pears.jpg';
-  const price = "$5";
-  const dist = '5 - 10km';
-  const exp = '10/8/2022';
+  const foodImg = params.foodImg;
+  const price = params.price;
+  const dist = params.dist;
+  const exp = params.exp;
   const info = `${price} • ${dist} • exp ${exp}`
-  const profile = '../assets/pears.jpg';
+  const profile = '../assets/Calvin.png';
   const profileName = "Calvin Venturo"
-  const itemDesc = '3 leftover European pears purchased from Woolworths about a week ago.'
+  const itemDesc = `${quantity} leftover ${item} purchased from Woolworths about a week ago.`
   return (
     <View style={[containers.container, {alignItems: 'flex-start'}]}>
       <View style={[containers.header, {flexDirection: 'row'}]}>
         {/* Title */}
         <Text style={fonts.title}>{title}</Text>
-        <IconButton src='../assets/back-arrow.png' onPress={() => {}} />
+        <IconButton src='../assets/back-arrow.png' onPress={() => navigation.goBack()} />
       </View>
-      <Image source={require(foodImg)} style={{width: 380, height: 250, borderRadius: 10}} />
+      <Image source={foodImg} style={{width: 380, height: 250, borderRadius: 10}} />
       <Text
           style={{fontWeight: 'bold', fontSize: 25, textAlign: 'center'}}
       >{info}</Text>
