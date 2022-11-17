@@ -37,7 +37,7 @@ export default function ViewListingsScreen({navigation}) {
             <Text style={styleFonts.subtitle}>Past orders:</Text>
             <ScrollView horizontal={true} vertical={false}>
               <Tile2 foodImg={tomato} name="Tomatoes" price="$5" dist="1 - 5km" exp="02/11" quantity={7} navigation={navigation}/>
-              <Tile2 foodImg={ribs} name="Ribs" price="$24" dist="5 - 10km" exp="14/9" navigation={navigation}/>
+              <Tile2 foodImg={ribs} name="Ribs" price="$24" dist="5 - 10km" exp="14/9" quantity={5} navigation={navigation}/>
               <Tile2 foodImg={pasta} name="Pasta" price="$12" dist="2km" quantity={4} navigation={navigation}/>
             </ScrollView>
           </View> 
