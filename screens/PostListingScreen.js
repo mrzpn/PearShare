@@ -1,12 +1,46 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, Modal, TouchableOpacity } from 'react-native';
 import { containers, fonts  } from '../styles/Global';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 import CameraIconButton from '../components/ImageUploadButton';
 import CheckBox from '../components/CheckBox';
 import PublishButton from '../components/PublishButton';
-import RadioButton from '../components/RadioButton'
+import RadioButton from '../components/RadioButton';
+import CloseButton from '../components/CloseButton';
+import punnet from '../assets/punnet.png';
+import postListing from '../assets/postListingTile.png';
+
+const Tile = (props) => {
+  return (
+        <View style={styles.tile}>
+            <TouchableOpacity >
+                <Image source={props.foodImg} style={{ width: "60%", height: 110, borderRadius: 10, marginBottom: 10 }} />
+                <Text style={styles.tileTitle}>{props.name}</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+const Tile2 = (props) => {
+    return (
+        <View style={styles.tile2}>
+            <TouchableOpacity onPress={alert("this will let you upload an image, hasn't been implemented yet. Press the close button to close the modal.")}>
+                <Image source={props.foodImg} style={{ width: "60%", height: 110, borderRadius: 10, marginBottom: 10 }} />
+                <Text style={styles.tileTitle}>{props.name}</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+const Tile3 = (props) => {
+    return (
+        <View style={styles.tile3}>
+            <TouchableOpacity >
+                <Image source={props.foodImg} style={{ width: "60%", height: 110, borderRadius: 10, marginBottom: 10 }} />
+                <Text style={styles.tileTitle}>{props.name}</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
 
 export default function PostListingScreen() {
     const [text, onChangeText] = React.useState("");
@@ -14,6 +48,9 @@ export default function PostListingScreen() {
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
     const [date, setDate] = useState(new Date(currDate));
+    const [modalVisible, setModalVisible] = React.useState(false);
+    const [modalVisible2, setModalVisible2] = React.useState(false);
+    
 
     const onChange = (event, selectedDate) => {
       const currentDate = selectedDate;
@@ -36,7 +73,36 @@ export default function PostListingScreen() {
               <TextInput style={styles.inputPrice} {...fieldStyle} placeholder="$ Price..."/>
             </View>
             <View style={styles.camera}>
-              <CameraIconButton src='../assets/camera-icon.png' onPress={() => {}} />
+              <CameraIconButton src='../assets/camera-icon.png' onPress={() => setModalVisible2(true)} />
+              <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible2}
+                onRequestClose={() => {
+                    setModalVisible2(!modalVisible2);
+                }}
+              >
+                <View style={styles.centeredView}>
+                  <View style={styles.modalView}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', width: '100%' }}>
+                      <View style={{ width: '80%', flexDirection: 'row', justifyContent: "flex-start" }}>
+                        <Text style={{ fontSize: 30, color: '#313131', fontWeight: "bold", marginVertical: 10 }}>Upload Image/s</Text>
+                      </View>
+                      <View style={{ width: '20%', flexDirection: 'row', justifyContent: "flex-end" }}>
+                        <CloseButton onPress={() => setModalVisible2(!modalVisible2)} />
+                      </View>
+                    </View>
+                    <View style={{ width: '100%', alignContent: "left" }}>
+                      <Text style={[styles.modalLabel, { marginBottom: 10 }]}>Strawberry Punnet</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', width: '102%', }}>
+                      <Tile foodImg={punnet} />
+                      <Tile2 foodImg={postListing} />
+                      <Tile3 foodImg={postListing} />
+                    </View>
+                  </View>
+                </View>
+            </Modal> 
             </View>
           </View>
           <View style={styles.description}>
@@ -105,8 +171,37 @@ export default function PostListingScreen() {
             <CheckBox label='Use my current address' onPress={onPress} />
           </View>
           <View style={[styles.publish, { marginVertical: 20 }]}>
-            <PublishButton label='Publish' onPress={onPress} />
+            <PublishButton label='Publish' onPress={() => setModalVisible(true)} />
           </View>
+          <Modal
+            animationType="fade"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+                setModalVisible(!modalVisible);
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', width: '100%' }}>
+                  <View style={{ width: '80%', flexDirection: 'row', justifyContent: "flex-start" }}>
+                    <Text style={{ fontSize: 30, color: '#313131', fontWeight: "bold", marginVertical: 10 }}>Your Listing Has Been Published!</Text>
+                  </View>
+                  <View style={{ width: '20%', flexDirection: 'row', justifyContent: "flex-end" }}>
+                    <CloseButton onPress={() => setModalVisible(!modalVisible)} />
+                  </View>
+                </View>
+                <View style={{ width: '100%', alignContent: "left" }}>
+                  <Text style={[styles.modalLabel, { marginBottom: 10 }]}>Strawberry Punnet</Text>
+                  <Text style={[styles.modalLabel, { marginBottom: 10 }]}>$2.00 - 20/102 George Street</Text>
+                  <Text style={[styles.modalLabel, { marginBottom: 10 }]}>Expires 25/10/2022</Text>
+                  <Text>Your listing is now live! Make sure to respond to any
+                      requests or messages received from potential buyers in
+                      timely manner.</Text>
+                </View>
+              </View>
+            </View>
+          </Modal>
         </View>
       </View>
     );
@@ -254,5 +349,45 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+  },
+  modalView: {
+      margin: 20,
+      width: '95%',
+      backgroundColor: "white",
+      borderRadius: 20,
+      padding: 30,
+      alignItems: "center",
+      shadowColor: "#000",
+      shadowOffset: {
+          width: 0,
+          height: 2
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5
+  },
+  modalLabel: {
+      fontWeight: 'bold',
+      fontSize: 20
+  },
+  tile: {
+    width: 185,
+    height: 185,
+  },
+  tile2: {
+      width: 185,
+      height: 185,
+      left: -65,
+  },
+  tile3: {
+      width: 185,
+      height: 185,
+      left: -130,
   },
 });

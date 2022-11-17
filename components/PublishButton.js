@@ -8,7 +8,7 @@ const PublishButton = (props) => {
         style={styles.button}
         onPress={onPress}
       >
-        <Text style={{color: '#313131'}}>{label}</Text>
+        <Text style={{color: 'white'}}>{label}</Text>
     </TouchableOpacity>
   );
 }
@@ -16,7 +16,7 @@ export default PublishButton;
 
 const styles = {
   button: {
-    backgroundColor: '#FFEFC4',
+    backgroundColor: '#FF805E',
     width: 139,
     height: 35,
     justifyContent: 'center',
