@@ -1,5 +1,5 @@
 # 🍐 PearShare
-An community marketplace app aimed at minimising household and retail food wastage.
+A community marketplace app aimed at minimising household and retail food wastage.
 
 ## 📖 About
 This app was part of a group assignment for COMP4511 - User Interface Design and Construction (22T3). It was built using React Native and Expo.
@@ -10,16 +10,11 @@ This app was part of a group assignment for COMP4511 - User Interface Design and
 git clone https://github.com/mrzpn/PearShare
 ```
 
-2. Update main repository: 
-```
-git checkout main
-git pull
-```
-3. Install packages with `npm install`.
-4. Run the app with `npx expo start` and follow the terminal instructions to run the app on your device.
+2. Install packages with `npm install`.
+3. Run the app with `npx expo start` and follow the terminal instructions to run the app on your device.
 
 ## 📚 Notes
-Please make sure XCode is running with iPhone 14 Pro Max simulator.
+If using Mac, please make sure XCode is running with iPhone 14 Pro Max simulator.
 Select this by File > Open Simulator > iPhone 14 Pro Max.
 
 ## 😎 Credits
